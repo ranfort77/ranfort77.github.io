@@ -37,3 +37,10 @@
     <script src="{{ script_path }}"></script>
   {% endfor %}
 {% endif %}
+
+<!--add(190504) ref: https://github.com/YoungestSalon/TIL/blob/master/Jekyll%20theme%20%EA%B8%B0%EB%B0%98%EC%9D%98%20%EC%A0%95%EC%A0%81%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md -->
+{% if page.mathjax %}
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+{% endif %}
