@@ -1,21 +1,19 @@
 ---
-title: Jekyll & Liquid 시작하기 (1)
-last_modified_at: 2019-04-30T22:28
+title: "Jekyll & Liquid 시작하기 (1)"
+excerpt: "cloudCannon 의 liquid 튜토리얼 공부 첫번째"
 categories:
-  - web
+  - language
 tags:
   - jekyll
   - liquid
-  - web
-toc: true
-author_profile: false
+last_modified_at: 2019-04-30T22:28
 ---
 
 
 
-본 내용은 [Learn Jekyll & CloudCannon](<https://learn.cloudcannon.com/>)의 Getting started with Jekyll (16 tutorial)의 내용을 공부하여 나의 방식대로 다시 정리한 것이다. 링크의 튜토리얼은 예제를 활용하여 liquid를 빠르게 이해할 수 있다. 또한 16가지 튜토리얼은 매우 좋은 예제들이 source code로 첨부되어 있어서 `jekyll serve` 명령으로 어떤 동작을 하는지 확인하면서 공부할 수 있다.  
+본 내용은 [Learn Jekyll & CloudCannon](<https://learn.cloudcannon.com/>)의 Getting started with Jekyll (16 tutorial)의 내용을 공부하여 나의 방식대로 다시 정리한 것이다. [Learn Jekyll & CloudCannon](<https://learn.cloudcannon.com/>) 튜토리얼은 liquid를 빠르게 이해할 수 있도록 예제 code와 함께 `jekyll serve` 명령으로 어떤 동작을 하는지 확인하면서 공부할 수 있다.  
 
-이 포스트에서는 CloudCannon 튜토리얼의 소스코드를 답습하는게 아니라 liquid에 관련된 간단한 요약만을 정리한다. 나중에 사용법을 잊어버렸을 때 기억하기 위함이다.
+여기서는 CloudCannon 튜토리얼을 기반으로 `liquid`에 관련된 간단한 요약만을 정리한다. 나중에 사용법을 잊어버렸을 때 기억하기 위함이다.
 
 주요 관련 사이트 링크:
 
@@ -23,8 +21,6 @@ author_profile: false
 * [liquid](<http://shopify.github.io/liquid/>)
 * [CloudCannon](<https://cloudcannon.com/>)
 * [YAML](<https://yaml.org/start.html>)
-
-[TOC]
 
 ##  1. Jekyll 구동하기
 
@@ -81,7 +77,7 @@ live site에 게시하지 않는 포스트를 작성할 수 있다. 주로 작�
 
 **_layouts/**
 
-어떤 포스트를 markdown으로 작성 할 때 그 포스트의 Front matter(머리말)에 layout을 지정하게 된다. layout은 포스트가 jekyll build에 의해 html로 변환되어 _site/ 폴더로 옴겨질 때 그 포스트의 contents(내용)를 감싸는 template에 해당한다. 특정 layout 에는 header, footer, navigation 등을 구현하는 코드들이 들어 있다.
+어떤 포스트를 markdown으로 작성 할 때 그 포스트의 Front matter(머리말)에 layout을 지정하게 된다. layout은 포스트가 jekyll build에 의해 html로 변환되어 _site/ 폴더로 옴겨질 때 그 포스트의 content (내용)를 감싸는 template에 해당한다. 특정 layout 에는 header, footer, navigation 등을 구현하는 코드들이 들어 있다.
 
 **_posts/**
 
@@ -104,6 +100,8 @@ jekyll이 incremental build에 사용하기 위해 어떤 파일이 변경되었
 site 폴더 내에 있는 Front matter를 가지는 모든 파일들은 jekyll이 적절히 build를 하여 _site/ 폴더에 html 형태로 복사한다.  Front matter가 없는 파일(예를 들어 CSS, JavaScript, 이미지, 또는 다른 여러 resouce 파일들)은 변경없이 똑같은 폴더트리를 유지한 채 _site/ 폴더로 복사한다.
 
 ## 3. Liquid 소개
+
+{% raw %} 
 
 [liquid](<http://shopify.github.io/liquid/>)는 사이트의 페이지 처리를 위해 jekyll이 내부적으로 사용하는 templating language이다. liquid를 사용하면 페이지를 만드는데 변수를 사용할 수 있고 페이지 안에서 if 같은 선택로직이나 loop 같은 반복문을 사용할 수 있다.
 
@@ -132,7 +130,7 @@ $ cat  _site/ex3-1.html
 <h1>Introduction to Liquid</h1>
 ```
 
-jekyll은 `jekyll build` 에 의해 `<site root>` 안에 front matter를 가지는 모든 파일을 적절히 변환하여 `_site/` 폴더에 `<filename>.html` 을 만든다. 그 때 front matter에 정의된 `var: value`은 `page.var` 형식으로 접근할 수 있고 `{{ page.var }}` 형식으로 출력할 수 있다. 여기서 `page.`는 현재 페이지 안에 정의된 것을 가리킨다. (`_config.yml`에 정의하는 global 변수는 `site.`으로 참조한다.)
+jekyll은 `jekyll build` 에 의해 `<site root>` 안에 front matter를 가지는 모든 파일을 적절히 변환하여 `_site/` 폴더에 `<filename>.html` 을 만든다. 그 때 front matter에 정의된 `var: value`은 `page.var` 형식으로 접근할 수 있고 `{{ page.var }}`형식으로 출력할 수 있다. 여기서 `page.`는 현재 페이지 안에 정의된 것을 가리킨다. (`_config.yml`에 정의하는 global 변수는 `site.`으로 참조한다.)
 
 따라서 `<site root>/ex3-1.html`의 `{{ page.title }}`은 `build` 시에 `Introduction to Liquid`로 치환되어 static page `<site root>/_site/ex3-1.html`로 저장된다. 
 
@@ -222,11 +220,7 @@ format: 2
   <h1>INTRODUCTION TO LIQUID</h1>
 
 ```
-
-**주의 1:** `page.format`의 data type에 대해 확실히 파악하고 넘어가자. string인가? int인가? 아마도 string 일것 같긴한데 만약 그렇다면 비교에서 string과 int를 비교한 것인가? 자동 conversion이 일어나서 비교했나? 나중에 알아 볼 것.
-
-**주의 2:** 결과의 빈 줄에 대해서! 아마 jekyll은 `build` 이후에 해당되는 로직 라인 줄을 삭제하는게 아니라 빈줄(줄넘김)로 남겨 두는 것 같다. 나중에 알게된 건데 빈줄을 제거하는 방법도 있다. [Whitespace control](<http://shopify.github.io/liquid/basics/whitespace/>) 참고.
-
+**주의:** 결과의 빈 줄은 아마 jekyll은 `build` 이후에 해당되는 로직 라인 줄을 삭제하는게 아니라 빈줄(줄넘김)로 남겨 두는 것 같다. 나중에 알게된 건데 빈줄을 제거하는 방법도 있다. [Whitespace control](<http://shopify.github.io/liquid/basics/whitespace/>) 참고
 ### 반복(for, array)
 
 아래 코드에서 front matter의 `arr`은 array이며 그 항목은 "a", "b", "c" 이다. `for`를 이용해서 항목을 하나씩 꺼낼 수 있다.
@@ -264,7 +258,11 @@ arr:
 
 **주의 :** 역시 해당 되는 로직 라인이 3번 반복 되고 마지막 `endfor` 포함해서 네칸이 빈 줄로 남겨져 있는 것 같다.
 
+{% endraw %} 
+
 ## 4. 머리말 (Front matter)
+
+{% raw %} 
 
 여기 부분의 CloudCannon 내용은 이미 전 단계와 많이 겹치기 때문에 생략하고, object를 정의하는 것만 작성한다.
 
@@ -306,7 +304,11 @@ fruit:
 </ul>
 ```
 
+{% endraw %} 
+
 ## 5. 레이아웃 (layouts)
+
+{% raw %} 
 
 ### layout, {{ content }}
 
@@ -438,9 +440,9 @@ title: My Homepage
 위와 같은 결과가 왜 나오는지 처음에 의아했는데 [jekyll 인터프리터 작업순서](<http://jekyllrb-ko.github.io/tutorials/orderofinterpretation/>)를 읽으면 어느정도 이해되는 것 같기도? 내가 이해한 대로 순서를 요약하면 다음과 같다.
 
 1. 모든 파일을 훑으면서 `site`, `page`, `post`, `collection` 객체의 값을 채운다. 값을 먼저!
-2. front matter가 있는 모든 파일의 liquid 서식 처리: `\{\%  \%\}`, `\{\{ variable \}\}` 같은.
+2. front matter가 있는 모든 파일의 liquid 서식 처리: `{%  %}`, `{{ variable }}` 같은.
 3. front matter가 있는 markdown을 html 로 변환
-4. layout 적용 및 `\{\{ content \}\}` 삽입
+4. layout 적용 및 `{{ content }}` 삽입
 5. 디렉토리 구조에 맞게 각 생성 컨텐츠를 `_site/` 로 저장
 
 위 인터프리터 작업순서에 따라 이전 단계의 `index.html`에서 일어난 일을 뇌내망상으로 생각해 본다.
@@ -539,3 +541,4 @@ in page: layout.city -> San Francisco
 
 두 번째 규칙이 조금 더 타당해 보이는데? 어쨌든 어떤 동작을 하는지 결과가 나오는지 잘 숙지하고 사용하자.
 
+{% endraw %} 

@@ -1,17 +1,17 @@
 ---
-title: Jekyll & Liquid 시작하기 (2)
-last_modified_at: 2019-05-01T23:28
+title: "Jekyll & Liquid 시작하기 (2)"
+excerpt: "CloudCannon 의 liquid 튜토리얼 공부 두번째"
 categories:
-  - web
+  - language
 tags:
   - jekyll
   - liquid
-  - web
-toc: true
-author_profile: false
+last_modified_at: 2019-05-01T23:28
 ---
 
 
+
+[Jekyll & Liquid 시작하기 (1)]({{ site.url }}/language/language-liquid-cloudcannon-1)에 이은 두번째 정리
 
 주요 관련 사이트 링크:
 
@@ -20,9 +20,9 @@ author_profile: false
 * [CloudCannon](<https://cloudcannon.com/>)
 * [YAML](<https://yaml.org/start.html>)
 
-[TOC]
-
 ## 6. includes
+
+{% raw %}
 
 ### {% include filename %}
 
@@ -105,7 +105,11 @@ build 결과 `<site root>/_site/index.html`는 다음과 같다.
 <h3 style="color:red">foo.html in includes</h3>
 ```
 
+{% endraw %}
+
 ## 7. Liquid 흐름제어문
+
+{% raw %}
 
 [CloudCannon 튜토리얼7](<https://learn.cloudcannon.com/jekyll/control-flow-statements-in-liquid/>) 에서는 다음과 같은 내용을 소개하고 있다.
 
@@ -183,7 +187,11 @@ obj:
        <h2>jkl : banana</h2>
 ```
 
+{% endraw %}
+
 ## 8. 문자열 필터 (String filters)
+
+{% raw %}
 
 이미 한번 나왔었던 필터에 대한 더 자세한 예시를 보여준다.  필터에 대한 더 많은 자료는 [Liquid](<https://shopify.github.io/liquid/>)를 참고할 것. 아래 표 데이터를 보면서 기능을 어떤게 있구나 정도로 넘어가고 나중에 필요할 때 다시 찾아보면 될 것 같다.
 
@@ -214,7 +222,11 @@ obj:
 | `{{ "The freshest bread in San Francisco" | truncate: 15 }}` | The freshest...              |
 | `{{ "Who ate all the cupcakes?" | truncatewords: 3 }}`       | Who ate all...               |
 
+{% endraw %}
+
 ## 9. 반복 (Loop)
+
+{% raw %}
 
 이 tutorial에서는 loop 를 사용하는데 여러가지 기능들을 더 소개해 주고 있다.
 
@@ -463,3 +475,4 @@ build 결과는 다음과 같다.
     <h2>3</h2>
 ```
 
+{% endraw %}

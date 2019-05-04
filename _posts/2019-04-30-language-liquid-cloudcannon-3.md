@@ -1,17 +1,19 @@
 ---
-title: Jekyll & Liquid 시작하기 (3)
-last_modified_at: 2019-05-02T01:50
+title: "Jekyll & Liquid 시작하기 (3)"
+excerpt: "CloudCannon 의 liquid 튜토리얼 공부 세번째"
 categories:
-  - web
+  - language
 tags:
   - jekyll
   - liquid
-  - web
-toc: true
-author_profile: false
+last_modified_at: 2019-05-02T01:50
 ---
 
 
+
+[Jekyll & Liquid 시작하기 (1)]({{ site.url }}/language/language-liquid-cloudcannon-1)
+
+[Jekyll & Liquid 시작하기 (2)]({{ site.url }}/language/language-liquid-cloudcannon-2) 에 이은 세번째 정리
 
 주요 관련 사이트 링크:
 
@@ -20,9 +22,9 @@ author_profile: false
 * [CloudCannon](<https://cloudcannon.com/>)
 * [YAML](<https://yaml.org/start.html>)
 
-[TOC]
-
 ## 10. 블로그 만드는 방법 소개
+
+{% raw %}
 
 ### 포스트 작성
 
@@ -179,7 +181,11 @@ layout: post
 
 HTML과 CSS를 이용해서 layout을 좀 더 개선하면 더 멋지게 페이지를 완성할 수 있을 것이다.
 
+{% endraw %}
+
 ## 11. 콜렉션 (collections)
+
+{% raw %}
 
 ### 콜렉션 만들기
 
@@ -332,7 +338,11 @@ title: 허스키
 허스키는 잘 생겼음.
 ```
 
+{% endraw %}
+
 ## 12. 데이터 파일 (data files)
+
+{% raw %}
 
 `<site root>/_data` 폴더를 만든다. jekyll은 `_data/` 폴더에 있는 `.json`, `.csv`, `.yml` 파일을 읽고 `site.data` 형식으로 데이터에 접근 할 수 있다. 테스트를 해 보자.
 
@@ -369,7 +379,11 @@ build 결과는 다음과 같다.
 
 더 자세한 응용은 [12. Introduction to data files](<https://learn.cloudcannon.com/jekyll/introduction-to-data-files/>) 참고.
 
+{% endraw %}
+
 ## 13. 고유 주소 (Permalinks)
+
+{% raw %}
 
 포스트, 페이지, 콜렉션 등은 빌드될 때 `_site/` 폴더 아래에 어디에 위치할지 고유 주소에 의해 결정된다. 예를 들어 포스트는 디폴트로 `_site/YYYY/MM/DD/title.html` 이 고유주소이다.  페이지의 경우는 그 페이지가 위치한 그대로를 따른다. 즉 `<site root>/index.html` 은 `_site/index.html` 로 빌드된다. 만약 `<site root>/blog/index.html`이라는 페이지는 `_site/blog/index.html`로 빌드된다. 콜렉션의 경우는 `output: true` 인 경우 `_site/collectionname/title.html` 이 된다. 이러한 디폴트 주소를 바꾸려면 `permalink` 변수를 이용하면 된다. `permalink` 의 유용함을 확인해 보자.
 
@@ -487,7 +501,11 @@ collections:
 
 그러면 dogs 콜렉션에 대한 빌드 파일들이 `_site/pets/` 폴더에 저장된다. 나중에 cats 콜렉션을 만들어서 같은 곳에 빌드되도록 할 수 있다.
 
+{% endraw %}
+
 ## 14. 기존 사이트 유지보수
+
+{% raw %}
 
 여기 내용은 기존 HTML + CSS 로 만들어진 웹사이트를 jekyll로 전환해 보는 튜터리얼이다. 이 부분은 원문을 직접 보면서 따라해보면 매우 좋을 것 같다. [14. Convert a static site to Jekyll](<https://learn.cloudcannon.com/jekyll/converting-a-static-site-to-jekyll/>)
 
@@ -518,3 +536,5 @@ title: Blog Home
 ```
 
 이제 `_data/navigation.yml` 에 형식에 맞춰서 항목 추가를 하면 저절로 네이게이션 링크가 추가된다.  더 자세한 사용법은 [Advanced navigation](<https://learn.cloudcannon.com/jekyll/advanced-navigation/>) 참고할 것.
+
+{% endraw %}
