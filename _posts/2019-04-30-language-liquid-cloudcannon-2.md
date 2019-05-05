@@ -1,6 +1,6 @@
 ---
 title: "Jekyll & Liquid 시작하기 (2)"
-excerpt: "CloudCannon 의 liquid 튜토리얼 공부 두번째"
+excerpt: "CloudCannon 의 liquid 튜토리얼 공부 두 번째"
 categories:
   - language
 tags:
@@ -11,7 +11,7 @@ last_modified_at: 2019-05-01T23:28
 
 
 
-[Jekyll & Liquid 시작하기 (1)]({{ site.url }}/language/language-liquid-cloudcannon-1)에 이은 두번째 정리
+[Jekyll & Liquid 시작하기 (1)]({{ site.url }}/language/language-liquid-cloudcannon-1)에 이은 두 번째 정리
 
 주요 관련 사이트 링크:
 

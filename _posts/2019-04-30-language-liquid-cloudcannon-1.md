@@ -1,6 +1,6 @@
 ---
 title: "Jekyll & Liquid 시작하기 (1)"
-excerpt: "cloudCannon 의 liquid 튜토리얼 공부 첫번째"
+excerpt: "cloudCannon 의 liquid 튜토리얼 공부 첫 번째"
 categories:
   - language
 tags:
