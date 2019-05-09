@@ -8,7 +8,7 @@ categories:
 tags:
   - jekyll
   - minimal-mistakes
-last_modified_at: 2019-05-04T10:34:00-05:00
+last_modified_at: 2019-05-06T02:01:00-05:00
 mathjax: true
 ---
 
@@ -427,7 +427,11 @@ $$
 
 github 동기화 한 후, mathjax는 되는데 폰트적용은 안되고 반응형 폰트도 적용이 안된다. 그런데 5분이상 기다리니까 적용됐다. 생각보다 github 적용 시간이 오래 걸린다.
 
-## 14. 계속 추가할 계획
+## 14. Disqus 계정 가입 및 댓글 기능 추가
+
+그대로 따라하여 댓글 기능 추가 완료
+
+## 15. 계속 추가할 계획
 
 (...진행 중...)
 
