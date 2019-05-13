@@ -408,22 +408,22 @@ HTML tag를 사용해서 밑 줄을 표시할 수 있다.
 `$`로 감싼 후 LaTeX으로 inline 수식을 작성할 수 있다. Typora에서는 파일>환경설정>Markdown>Inline 수식이 활성화 되어 있어야 한다. 
 
 ```markdown
-$\lim_{x \to \infty} \exp(-x) = 0$
+여기에 inline 수식 $$\lim_{x \to \infty} \exp(-x) = 0$$ 가 들어간다.
 ```
 
-$\lim_{x \to \infty} \exp(-x) = 0$
+여기에 inline 수식 $$\lim_{x \to \infty} \exp(-x) = 0$$ 가 들어간다.
 
 ```markdown
-$z=\dfrac{2x}{3y}$
+인라인 수식: $$z=\dfrac{2x}{3y}$$ 넣기
 ```
 
-$z=\dfrac{2x}{3y}$
+인라인 수식: $$z=\dfrac{2x}{3y}$$ 넣기
 
 ```markdown
-$F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx$
+인라인 수식: $$F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx$$ 넣기
 ```
 
-$F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx$
+인라인 수식: $$F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx$$ 넣기
 
 수식 입력 관련 참고 자료: [Math and Academic Functions](<http://support.typora.io/Math/>)
 
