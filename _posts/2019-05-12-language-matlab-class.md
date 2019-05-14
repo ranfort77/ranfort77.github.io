@@ -6,11 +6,12 @@ categories:
 tags:
   - matlab
   - oop
-last_modified_at: 2019-05-14T01:00:00-05:00
+last_modified_at: 2019-05-14T07:22:00-05:00
 ---
 
 몇 가지 문서와 예제를 통해 MATLAB class 설계 방법에 대한 규칙을 공부하였다. 아래 링크는 본 문서에서 중간중간에 필요할 때마다 참고하는 MATLAB 문서 링크지만, 나중에 다시 찾기 쉽게 상단에 모아둔다.
 
+* [MATLAB: Classes](<https://kr.mathworks.com/help/matlab/object-oriented-programming.html?lang=en>): 이 문서에 MATLAB Class에 대한 자세한 설명이 다 들어 있다.
 * [MATLAB: Class Components](<https://kr.mathworks.com/help/matlab/matlab_oop/class-components.html>)
 *  [MATLAB: Attribute Specification](<https://kr.mathworks.com/help/matlab/matlab_oop/specifying-attributes.html>) 
 *  [MATLAB: Operator Overloading](<https://kr.mathworks.com/help/matlab/matlab_oop/implementing-operators-for-your-class.html>)
