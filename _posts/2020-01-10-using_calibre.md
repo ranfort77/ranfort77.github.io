@@ -1,10 +1,10 @@
 ---
-title: "캘리버 사용법 정리 (작성중)"
+title: "캘리버 (calibre) 사용법 정리"
 excerpt: "calibre 사용법 정리"
 categories:
-  - app
+  - tool
 tags:
-  - app
+  - calibre
 last_modified_at: 2020-01-13T01:13:00-05:00
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "파이썬 string fomratting"
+title: "파이썬 string formatting"
 excerpt: "몇 가지 문서를 읽고 중요한 내용을 정리"
 categories:
   - python
