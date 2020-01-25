@@ -20,6 +20,13 @@ pdf로 된 책들을 정리하기 위해 오픈소스 전자책 관리 프로그
 
 * Calibre Quick Start Guide 4th Ed. by John Schember
 * [calibre User Manual](https://manual.calibre-ebook.com/)
+
+
+
+나중에 더 읽어볼 것
+
+* [How To Organize Your Ebook Collection with Calibre](https://www.howtogeek.com/73979/how-to-organize-your-ebook-collection-with-calibre/)
+
 * [시놀로지 NAS 에서 EBook Calibre OPDS 서버 설치하기](https://www.clien.net/service/board/lecture/6638035)
 * [시놀로지 NAS 로 나만의 온라인 서재를 만들 수 있어요](https://damduck01.com/686)
 * [나만의 온라인 서재 구축하기 2. BicBucStriim 설치](https://damduck01.com/692?category=795027)
@@ -195,3 +202,23 @@ https://regex101.com/ 에서 정규표현식 테스트를 할 수 있다.
 ![](/assets/images/calibre/move_library_1.png)
 
 `새로운 위치에서 기존의 서재 사용`은 해보진 않았지만 아마도 캘리버를 삭제하고 다시 깔았을 때 기존에 남아있던 캘리버 서재를 캘리버에 다시 등록하여 사용할 때 이용하는 것으로 생각된다.
+
+
+
+## 시리즈
+
+한글 해리포터 시리즈는 아래와 같은 순서로 되어 있다.
+
+1. 해리포터와 마법사의 돌 (1, 2편)
+2. 해리포터와 비밀의 방 (1, 2편)
+3. 해리포터와 아즈카반의 죄수 (1, 2편)
+4. 해리포터와 불의 잔 (1, 2, 3, 4편)
+5. 해리포터와 불사조 기사단 (1, 2, 3, 4, 5편)
+6. 해리포터와 혼혈왕자 (1, 2, 3, 4편)
+7. 해리포터와 죽음의 성물 (1, 2, 3, 4편)
+
+전자책으로 해리포터 시리즈를 모두 가지고 있다면 모두 23권의 책을 가지고 있을 것이다. 이것을 캘리버 서재에 적재한다고 해보자. 해리포터와 마법사의 돌 1권을 예를 들면 제목은 "해리포터와 마법사의 돌 1"이 되고 저자는 Joanne K. Rowling 이 될 것이다. 
+
+그런데 단순히 제목과 저자만으로 23권을 입력하면 시리즈 순서에 대한 정보가 들어가 있지 않아서 나중에 어떤 순서로 시리즈를 읽어 나갈지 알 수 없을 것이다. 이 때 사용하는 메타데이터가 "시리즈 (series)" 와 "번호 (series_index)"이다. "책 정보 수정" 툴을 열면 상단에 저자를 입력하는 칸 아래에 시리즈를 입력하는 칸이 있고 시리즈에 어떤 문자를 입력하면 우측에 번호 칸이 활성화 된다. 해리포터와 마법사의 돌은 시리즈가 "해리포터"가 되고 번호는 "1" 이 된다. 같은 방식으로 해리포터와 비밀의 방은 시리즈가 "해리포터"가 되고 번호는 "2"가 된다. 이렇게 해두면 나중에 아마존 킨들 같은 전자책 기기에 해리포터 시리즈를 넣었을 때도 시리즈 별로 정렬해서 넣을 수 있다. 그 방법은 [How To Use Calibre To Correctly Order Your Ebook Series](https://www.howtogeek.com/114063/how-to-use-calibre-to-correctly-order-your-ebook-series/) 참고 할 것.
+
+시리즈 메타데이터를 갖는 책이 있으면 캘리버 좌측의 태그 탐색기에 시리즈를 클릭해서 곧바로 검색할 수 있다.
