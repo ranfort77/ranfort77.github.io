@@ -5,7 +5,8 @@ categories:
   - study
 tags:
   - nlp
-last_modified_at: 2020-02-04T13:57:00-05:00
+last_modified_at: 2020-02-16T13:50:00-05:00
+mathjax: true
 ---
 
 
@@ -320,15 +321,25 @@ print(kkma.nouns("열심히 코딩한 당신, 연휴에는 여행을 가봐요")
 ### 2) 통계적 언어 모델 (Statistical Language Model, SLM)
 
 조건부확률의 연쇄 법칙 (chain rule)
+
+
 $$
 P(x_1,x_2,x_3,...,x_n)=P(x_1)P(x_2|x_1)P(x_3|x_1,x_2)...P(x_n|x_1,...,x_{n-1})=\prod_{n=1}^nP(x_n|x_1,...,x_{n-1})
 $$
+
+
+
 어떤 문장은 문맥을 통해 이전 단어의 영향을 받아 이후 단어가 파생되므로 특정 문장의 확률은 위 조건부확률과 같다.
 
 카운트 기반 접근
+
+
 $$
 P(is|An\space dorable\space little\space boy)=\frac{count(An\space adorable\space little\space boy\space is)}{count(An\space adorable\space little\space boy)}
 $$
+
+
+
 카운트 기반 접근의 한계
 
 * 희소 문제 (Sparsity Problem) : 단어가 존재하지 않으면 생기는 문제
@@ -341,6 +352,9 @@ $$
 $$
 P(w|boy\space is\space spreading)=\frac{count(boy\space is\space spreading\space w)}{count(boy\space is\space spreading)}
 $$
+
+
+
 n-gram 언어 모델의 한계
 
 * 희소 문제, n선택 trade-off 문제 (n은 최대 5이하 권장)
@@ -370,25 +384,44 @@ n-gram 언어 모델의 한계
 ### 6) 조건부 확률
 
 사건 A가 일어났을 때 사건 B가 일어날 확률을 사건 B의 **조건부 확률**이라 한다. 
+
+
 $$
 P(B|A) = \frac{P(A \cap B)}{P(A)}
 $$
+
 사건 A가 일어나는 여부가 사건 B가 일어날 확률에 영향을 미치지 않을 때 사건 A와 B는 서로 **독립**이라고 한다.
+
+
 $$
 P(B|A)=P(B|A^c)=P(B)
 $$
+
 사건 A가 일어나는 여부가 사건 B가 일어날 확률에 영향을 미칠 때 사건 A와 B는 서로 **종속**이라고 한다.
+
+
 $$
 P(B|A) \neq P(B|A^c)
 $$
+
 두 사건 A와 B가 서로 독립이기 위한 필요충분조건
+
+
 $$
 P(A \cap B)=P(A)P(B)
 $$
+
+
+
 joint probability 
+
+
 $$
 P(A,B)=P(A \cap B)=P(B|A)P(A)=P(A|B)P(B)
 $$
+
+
+
 참고 문헌
 
 * [조건부확률과 사건의 독립과 종속](https://www.mathfactory.net/11235)
@@ -465,6 +498,7 @@ $$
 similarity=cos(\theta)=\frac{A \cdot B}{|A||B|}
 $$
 
+
 * +1: 두 벡터의 방향이 동일
 * 0: 두 벡터의 각 90도
 * -1: 두 벡터의 방향이 반대
@@ -479,11 +513,14 @@ $$
 $$
 \sqrt{\Sigma_{i=1}^n(q_i-p_i)^2}
 $$
+
+
 자카드 유사도 (Jaccard similarity)
 $$
 J(A,B)=\frac{|A\cap B|}{|A\cup B|}=\frac{|A\cap B|}{|A|+|B|-|A\cap B|}\\
 J(doc_1,doc_2)=\frac{doc_1\cap doc_2}{doc_1\cup doc_2}
 $$
+
 
 
 ## 6. 토픽 모델링 (Topic Modeling)
@@ -608,6 +645,7 @@ $$
   H(X)=\frac{1}{1+e^{-(Wx+b)}}=sigmoid(Wx+b)=\sigma(Wx+b)
   $$
   
+  
 * 비용 함수 (Cost function)
 
   * 로지스틱 회귀에서는 로컬 미니멈 때문에 비용함수로 MSE를 사용하지 않음
@@ -617,10 +655,13 @@ $$
     cost(H(x),y)=-[y\space logH(x)+(1+y)log(1-H(x))]
     $$
     
+    
   * 로지스틱 회귀 목적 함수
     $$
     J(W)=-\frac{1}{n}\Sigma_{i=1}^n[y^{(i)}\space logH(x^{(i)})+(1+y^{(i)})log(1-H(x^{(i)}))]
     $$
+  
+  
   
 * keras 예제 참고
 
@@ -655,6 +696,7 @@ $$
   p_i=\frac{e^{z_i}}{\Sigma_{j=1}^ke^{z_j}}\space for\space i=1,2,...,k
   $$
   
+  
 * 클래스 분류에 대한 수치 표현은 원-핫 벡터가 적절
 
 * 비용 함수 (Cost function): n개의 전체 데이터에 대한 평균
@@ -662,6 +704,7 @@ $$
   cost(W)=-\frac{1}{n}\Sigma_{i=1}^n \Sigma_{j=1}^k y_j^{(i)}\space log(p_j^{(i)})
   $$
 
+  
 * `import seaborn as sns`
 
 * 다중 클래스에 대한 데이터 관찰 예제 및 소프트맥스 회귀 예제를 나중에 다시 볼 것
@@ -857,4 +900,14 @@ $$
 * NNLM의 이점과 한계
   * 밀집 벡터를 이용한 희소 문제 해결
   * n개의 단어만을 참고하여 버려지는 단어들의 문맥 정보를 참고할 수 없음
+
+
+
+## 쉼터: 2020-02-09
+
+여기까지 공부한 후 개념이 너무 방대하고 해깔리기 때문에 XMind를 활용해서 키워드 마인드 맵을 그려보았다. 
+
+![](/assets/images/2020-02-16-wikidocs-nlp/Natural Language Processing.png)
+
+이 후 내용은 잠시 접어두고 다른 TextBook을 공부한 후에 살펴보기로 한다.
 

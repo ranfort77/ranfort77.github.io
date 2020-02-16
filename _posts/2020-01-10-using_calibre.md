@@ -26,7 +26,6 @@ pdf로 된 책들을 정리하기 위해 오픈소스 전자책 관리 프로그
 나중에 더 읽어볼 것
 
 * [How To Organize Your Ebook Collection with Calibre](https://www.howtogeek.com/73979/how-to-organize-your-ebook-collection-with-calibre/)
-
 * [시놀로지 NAS 에서 EBook Calibre OPDS 서버 설치하기](https://www.clien.net/service/board/lecture/6638035)
 * [시놀로지 NAS 로 나만의 온라인 서재를 만들 수 있어요](https://damduck01.com/686)
 * [나만의 온라인 서재 구축하기 2. BicBucStriim 설치](https://damduck01.com/692?category=795027)
