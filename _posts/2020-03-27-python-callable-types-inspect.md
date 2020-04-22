@@ -8,7 +8,7 @@ tags:
   - callable
   - types
   - inspect
-last_modified_at: 2020-03-28T13:53:00-05:00
+last_modified_at: 2020-03-29T03:50:00-05:00
 ---
 
 
@@ -345,6 +345,30 @@ ismodule      False   False   True         False         False           False
 ```
 
 위와 같이 inspect 모듈을 사용하면 매우 쉽게 객체를 분류할 수 있다. `loc`에 대해서도 의도대로 분류한다.  [journaldev python inspect module](https://www.journaldev.com/19946/python-inspect-module)에도 언급된 것처럼 inspect 모듈이 통합개발환경 (IDE) 에디터에서 객체 분류에 사용되는 모듈이 아닌가 생각된다.
+
+
+
+### 내용 추가 (2020-03-29): spyder IDE에서 attribute를 분류하는 방법
+
+spyder IDE에서 attribute를 `a`, `f`, `c`로 분류하는 것에 대해 더 깊이 고민해 보았고 그 결과는 [attributes 분류 알고리즘](https://gist.github.com/ranfort77/71b0696790348c8a4c6f95b2a634125d)에 자세히 정리하였다. 결과만 간단히 적으면 다음과 같다. 
+
+```python
+def get_symbol(obj):
+    if inspect.isroutine(obj):
+        return 'f'
+    elif inspect.isclass(obj):
+        return 'c'
+    elif inspect.isdatadescriptor(obj):
+        return 'a'
+    else:
+        return 'a'
+
+# tests
+assert get_symbol(pd.DataFrame.__delattr__) == 'f' 
+assert get_symbol(pd.DataFrame.plot) == 'c'
+assert get_symbol(pd.DataFrame.loc) == 'a'
+assert get_symbol(pd.DataFrame._AXIS_ALIASES) == 'a'
+```
 
 
 
