@@ -390,6 +390,22 @@ se.notna()
 
 
 
+* 알아 둬야할 메서드
+
+| method       | 설명                                   | pandas | dataframe | series | index |
+| :----------- | :------------------------------------- | :----- | :-------- | :----- | :---- |
+| all          | 행 또는 열의 모든 원소가 True면 True   |        | v         | v      | v     |
+| any          | 행 또는 열의 모든 원소가 False면 False |        | v         | v      | v     |
+| value_counts | nan이 아닌 값의 수                     | v      |           | v      | v     |
+| isin         | 특정 값을 가지고 있으면 True           |        | v         | v      | v     |
+| rename       | axis labels 바꾸기                     |        | v         | v      | v     |
+| rename_axis  | axis name 바꾸기                       |        | v         | v      |       |
+| abs          | 절대값                                 |        | v         | v      |       |
+| nunique      | util_unique                            |        | v         | v      | v     |
+| unique       | unique 값                              | v      |           | v      | v     |
+
+
+
 ## 11. 산술 연산
 
 dataframe과 series의 산술 연산은 element-wise 연산이라기 보다는 label-wise 연산이다. 예를 들어 아래와 같이 index와 columns가 다른 두 series 또는 두 dataframe의 산술 연산을 해보면 label이 일치하는 부분만 계산되고 나머지는 NaN이 된다.
@@ -779,7 +795,7 @@ se.map(str.upper, na_action='ignore')
 
 ### 12-7. assign
 
-assign 메서드는 dataframe에 새로운 column들을 추가하는데 사용한다. 
+assign 메서드는 dataframe에 새로운 column들을 추가하는데 사용한다. `df[k] = v` 방식으로 column을 추가하는 대신 메서드로 column을 추가하기 때문에 임시 dataframe variable 만들지 않는 method chaining에 이용할 수 있다.
 
 ```python
 """df.assign(**kwargs)
@@ -1108,6 +1124,33 @@ grouped.transform(np.cumsum)
 # df.transform과는 달리 aggregation function을 지원하는데,
 # 결과는 원본 group과 크기가 같게되도록 broadcast된다.
 grouped.transform(np.prod)  # broadcast
+```
+
+groupby.transform이 groupby.apply와 구분되는 점은 built-in aggregation function을 사용할 수 있다는 점과 unwrapped group operation이 가능하다는 점이다.  Wes McKinney의 Python for Data Analysis 2nd ed.의 373 page 설명을 참고하자. 아래 예제를 통해 groupby.transform의 쓰임새를 확인한다.
+
+```python
+# key 열에 있는 group 별로 normalize 하는 예제
+df = pd.DataFrame({'key': ['a', 'b', 'c'] * 4,
+                   'value': np.arange(12.)})
+grouped = df.groupby('key')['value']
+def normalize(x): return (x - x.mean()) / x.std()
+
+# 위 grouped에 대해서 normalize 하는 방법은 아래와 같이 두 가지 방법이 있다.
+grouped.transform(normalize)
+grouped.apply(normalize)
+
+# unwrapped group operation을 이용하면 위와 같이 callable을 거치지 않아도 된다.
+# mean과 std는 pandas built-in aggregation function이기 때문에 
+# grouped.transform 메서드를 이용하면 아래와 같은 방법도 가능하다.
+# 좀 더 직관적이다.
+(df['value'] - grouped.transform('mean')) / grouped.transform('std')
+
+# groupby.transform에 aggregation function이 전달될 때, 각 group 별로
+# broadcast 된다는 특징 때문에 아래와 같이 직관적인 표현이 가능하다.
+demeaned = df['value'] - grouped.transform('mean')
+# 아래와 같이 groupby.apply는 input의 크기가 유지되지 않는다는 점에서
+# 위와 같은 연산을 할 수 없다.
+grouped.apply(np.mean)
 ```
 
 

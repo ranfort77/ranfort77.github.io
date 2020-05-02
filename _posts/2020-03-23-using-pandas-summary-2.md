@@ -118,7 +118,40 @@ df.one.filter(['Ahn', 'Kang'])
 
 
 
-### 5-4. sample, nlargest, nsmallest
+### 5-4. query
+
+query 메서드는 dataframe의 boolean indexing을 메서드로 하는 것과 같다.
+
+```python
+df = pd.DataFrame(np.random.randn(6, 3), 
+                  index=list('abcdef'), columns=['A', 'B', 'C C'])
+
+"""df.query(expr, inplace=False, **kwargs)
+
+    - boolean expression으로 dataframe의 subset 선택
+    - expr: query string
+"""
+
+# 아래 두 결과는 동일
+df.query('A > B')
+df[df['A'] > df['B']]
+
+# lable에 빈 칸이 있으면 backtick으로 감싸서 사용
+df.query('A > `C C`')
+df[df['A'] > df['C C']]
+
+# query string 안에서 @으로 변수를 참조할 수 있고, 연산을 할 수 있음
+colA = df.A
+colB = df.B
+df.query('@colA + @colB > `C C`')
+df[colA + colB > df['C C']]
+# dataframe의 column으로 연산을 하려면 backtick으로 감싸야 함
+df.query('`A` + `B` > `C C`')
+```
+
+
+
+### 5-5. sample, nlargest, nsmallest
 
 * sample은 dataframe 또는 series의 행/열/원소를 무작위로 뽑는데 사용한다.
 

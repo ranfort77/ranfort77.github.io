@@ -23,6 +23,8 @@ last_modified_at: 2020-04-04T18:22:00-05:00
 * [8. Data Wrangling: Join, Combine, and Reshape](https://gist.github.com/ranfort77/560cde4ec09a75fd8378dc87461f7ec7)
 * [9. Plotting and Visualization](https://gist.github.com/ranfort77/c368a46bb25d40222354fe708c3bdc55)
 * [10. Data Aggregation and Group Operations](https://gist.github.com/ranfort77/de93365b9cbd35ba4241c57621b71fa2)
+* [11. Time Series](https://gist.github.com/ranfort77/bcb463f4429f05c758fc43b7139626aa)
+* [12. Advanced Pandas](https://gist.github.com/ranfort77/c5bb68f7faa20138d6741f99c3a4a346)
 
 책에서는 dataframe, series, index 같은 pandas objects의 생성 방법과 attributes를 소개하고, 그 objects의 여러  methods가 어떤 기능을 하는지 동작 관점에서 설명한다. 그러나 실무 데이터에 적용하려니 아래와 같은 어려움이 있었다.
 
@@ -35,7 +37,7 @@ last_modified_at: 2020-04-04T18:22:00-05:00
 
 책을 통해 pandas의 구성요소는  어느정도 이해 하였으나, 그 구성요소가 어떤 상황에서 어떻게 응용되는지 정리 및 연습이 되지 않아서 생기는 문제들이다. 즉, pandas에 유창하지 않아서 생기는 문제이다. 
 
-본 글은 "_pandas의 특정 구성요소가 어떤 상황에서 필요할 것 같다_"는 관점의 정리다. 그리고 구성요소를 설명할 때 책에는 없지만 특정 상황에서 필요할수도 있겠다 싶은 예제 코드들도 추가하였다.
+본 포스트는 pandas 사용을 좀 더 유창하게 하기 위해 pandas 클래스와 메서드들을 책보다 더 자세히 정리하고 내 기준으로 분류 한 것이다. 정리 도중에 책에는 없지만 특정 상황에서 필요할수도 있겠다 싶은 예제들도 많이 추가하였다.
 
 
 
