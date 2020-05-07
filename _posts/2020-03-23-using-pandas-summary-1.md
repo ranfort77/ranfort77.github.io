@@ -26,18 +26,19 @@ last_modified_at: 2020-04-04T18:22:00-05:00
 * [11. Time Series](https://gist.github.com/ranfort77/bcb463f4429f05c758fc43b7139626aa)
 * [12. Advanced Pandas](https://gist.github.com/ranfort77/c5bb68f7faa20138d6741f99c3a4a346)
 
-책에서는 dataframe, series, index 같은 pandas objects의 생성 방법과 attributes를 소개하고, 그 objects의 여러  methods가 어떤 기능을 하는지 동작 관점에서 설명한다. 그러나 실무 데이터에 적용하려니 아래와 같은 어려움이 있었다.
+책에서는 dataframe, series, index 같은 pandas objects의 생성 방법과 attributes를 소개하고, 특정 기능을 하는 여러 methods를 소개해 준다. 그렇지만 그런 기능을 어느 정도 익히고 난 후 실무 데이터에 적용하려니 아래와 같은 어려움이 있었다.
 
 * 이런 상황에서는 data 구조를 어떻게 설계해야 하고, 무슨 메서드를 사용해야 하는가? 
 * 메서드를 사용하기 이전에 모든 raw data가 저장된 DataFrame의 구조를 어떻게 설계하는게 나중의 분석단계를 위해 좋은가?
   * index는 무엇으로? columns는 무엇으로? multi-index를 사용하는게 어떤 이점이 있는가? 등등
 * 어떤 새로운 labeled vector data가 있을 때 그것을 어떻게 모든 데이터가 모여있는 DataFrame에 통합할 수 있는가?
   * index key가 완벽 매칭되지 않을 때는 어떻게 통합하는가?
+* 어떤 하나의 기능을 구현한 것에 대해 더 간결하고 효율적인 구현은 없을까?
 * 등등...
 
 책을 통해 pandas의 구성요소는  어느정도 이해 하였으나, 그 구성요소가 어떤 상황에서 어떻게 응용되는지 정리 및 연습이 되지 않아서 생기는 문제들이다. 즉, pandas에 유창하지 않아서 생기는 문제이다. 
 
-본 포스트는 pandas 사용을 좀 더 유창하게 하기 위해 pandas 클래스와 메서드들을 책보다 더 자세히 정리하고 내 기준으로 분류 한 것이다. 정리 도중에 책에는 없지만 특정 상황에서 필요할수도 있겠다 싶은 예제들도 많이 추가하였다.
+본 포스트는 pandas 사용을 좀 더 유창하게 하기 위해 pandas 클래스와 메서드들을 책보다 더 자세히 정리한 후 다시 내 기준으로 분류 한 것이다. 따라서 본 정리에는 책에는 없지만 특정 상황에서 필요할수도 있겠다 싶은 예제들을 많이 추가하였다.
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Book study: Effective Computation in Physics"
-excerpt: "책 내용 요약"
+excerpt: "계산 과학자가 반드시 익혀야 할 랩스킬"
 categories:
   - study
 tags:
