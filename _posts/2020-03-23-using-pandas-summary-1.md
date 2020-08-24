@@ -25,6 +25,8 @@ last_modified_at: 2020-04-04T18:22:00-05:00
 * [10. Data Aggregation and Group Operations](https://gist.github.com/ranfort77/de93365b9cbd35ba4241c57621b71fa2)
 * [11. Time Series](https://gist.github.com/ranfort77/bcb463f4429f05c758fc43b7139626aa)
 * [12. Advanced Pandas](https://gist.github.com/ranfort77/c5bb68f7faa20138d6741f99c3a4a346)
+* chapter 13: Patsy, statsmodels, scikit-learn 모듈의 간단한 사용법을 소개
+* [14. Data Analysis Examples](https://gist.github.com/ranfort77/8609875c09006af7f22afbe909f5e8fa)
 
 책에서는 dataframe, series, index 같은 pandas objects의 생성 방법과 attributes를 소개하고, 특정 기능을 하는 여러 methods를 소개해 준다. 그렇지만 그런 기능을 어느 정도 익히고 난 후 실무 데이터에 적용하려니 아래와 같은 어려움이 있었다.
 
