@@ -5,7 +5,7 @@ categories:
   - study
 tags:
   - autohotkey
-last_modified_at: 2020-08-25T05:52:00-05:00
+last_modified_at: 2020-09-05T02:05:00-05:00
 ---
 
 
@@ -65,6 +65,66 @@ last_modified_at: 2020-08-25T05:52:00-05:00
 ## 정리
 
 본 섹션은 머리말 두 번째 단락의 질문들에 대해, 지금까지 공부한 내용을 바탕으로 내 생각을 정리한 것이다. 오토핫키는 변수 값 할당, 문자열 출력, if 조건문, 커맨드 파라메터 입력 등의 다양한 요소에서 legacy syntax와 expression syntax를 사용할 수 있다. 그런데 legacy sytanx는 프로그래밍 입문자 뿐 아니라 경험자에게도 대단히 혼란스럽게 만드는 점이 있으므로 정확하게 알고 사용해야 한다.
+
+
+
+### Case-insensitive & Variable names
+
+먼저 변수명 작성 규칙에 대해 알아보자.
+
+* AutoHotkey는 variables, keywords, commands, functions 등에 대해 대소문자를 구분하지 않는다. 즉, case-insensitive다. msgbox, MSGBOX, MSGbox, msgBOX, 등 모두 같은 MsgBox 커맨드다. 
+
+* 변수명을 지을 때, letters (A-Za-z), numbers (0-9), non-ASCII characters (한글 같은 유니코드) 및 `_`, `#`, `@`, `$` 가 허용된다. 
+
+  * 다른 여러 프로그래밍 언어의 변수명 작성 규칙 (또는 identifier rules) 은 letters, numbers, `_` 의 조합만을 허용하며 반드시 letters로 시작해야 한다. 정규 표현식으로는 `[A-Za-z][A-Za-z0-9_]*` 과 같다.
+  * Python의 경우 letters 또는 `_`로 시작하는 것을 허용한다. 정규 표현식으로는 `[A-Za-z_][A-Za-z0-9_]*` 과 같다.
+  * AutoHotkey v1의 경우 numbers로 시작해도 되고, `#`, `@`, `$`를 사용해도 되지만, **Python의 규칙을 따르길 추천한다.**
+
+* AutoHotkey는 numbers 만으로도 변수명으로 쓸 수 있다. 즉 아래와 같은 코드가 가능하다.
+
+  ```
+  10 := 100
+  MsgBox, %10%
+  ```
+
+  그렇지만 절대로 이렇게 쓰면 안 된다. 숫자로만 된 변수는 command line parameters 로 예약되어 있다. ([Script Properties](https://www.autohotkey.com/docs/Variables.htm#prop) 참고)
+
+* AutoHotkey에는 많은 Built-in Variables이 예약되어 있고 `A_`로 시작한다.
+
+* 더 자세한 내용은 [Names](https://www.autohotkey.com/docs/Concepts.htm#names)를 참고하라.
+
+
+
+### Coding Convention
+
+Coding convention은 미리 약속된 코딩 스타일 규약이다. 전역변수명, 지역변수명, 함수명, 클래스명, 메소드명 등에 대한 명명 규약을 Naming convention이라 한다. 그리고 함수에 인수들을 나열할 때 콤마 다음에 한칸을 띄울지 말지, block을 배치할 때 한줄을 띄울지 말지, if 다음 조건문을 작성할 때 한칸을 띄울지 말지 같은 것을 스타일 규약이라 한다.
+
+**Coding convention의 목적은 가독성을 높이기 위함이다.** 코드가 얼마나 잘 읽혀지는가는 남에게 뿐 아니라 나에게도 중요하다. 가독성이 안 좋으면 어제 작성한 자기 코드도 잘 알아볼 수 없다.
+
+먼저 AutoHotkey 공식 문서나 SciTE4Autohotkey editor 등 에서는 어떤 Naming Convention을 쓰는지 정리한다.
+
+* AutoHotkey에서는 공식적으로 여러 지정자에 대해 **UpperCamelCase**를 쓴다.
+  * 커맨드의 예: `MsgBox`, `MouseMove`, `CoordMode`, `EnvGet`, `ControlSend`
+  * 내장 함수의 예: `FileExist`, `GetKeyState`, `InStr`, `StrLen`, `StrReplace`, `StrSplit`
+  * 내장 변수의 예: `A_KeyDelay`, `A_WorkingDir`, `A_OSVersion`
+* user-defined variables의 경우 **lowerCamelCase**를 쓰는 경우가 많다.
+  * `baseObject := {foo: "bar"}`
+* Label의 경우 **snake_case**를 쓴다.
+  * `this_is_a_label:`
+
+오토핫키 포럼의 사용자들은 어떤 Coding Convention을 따르는지 아래 링크를 참고하자.
+
+* [Syntax and naming conventions?](https://www.autohotkey.com/boards/viewtopic.php?t=44183)
+* [Autohotkey coding standards (naming, etc)](https://autohotkey.com/board/topic/24891-autohotkey-coding-standards-naming-etc/)
+
+나는 다음 규칙을 따르기로 한다.
+
+* 아래 예외를 제외하고 대부분은 [Python PEP 8](https://www.python.org/dev/peps/pep-0008/)을 따른다.
+* 예외
+  * legacy syntax는 최대한 피하고, expression syntax를 사용한다.
+  * 사용자 정의 변수명, 함수명, 메소드명은 lowerCamelCase를 쓴다.
+  * 사용자 정의 클래스명은 UpperCamelCase를 쓴다.
+  * 함수를 쓸때는 최대한 force-local mode를 사용한다.
 
 
 
@@ -351,7 +411,7 @@ MsgBox, hello
 MsgBox, var=%vaar%
 ```
 
-WarningMode를 StdOut으로 설정하면 MsgBox로 Warning을 보여는게 아니라 SciTe 편집기 아래 StdOut에 warning 정보를 보여준다.
+WarningMode를 StdOut으로 설정하면 MsgBox로 Warning을 보여주는게 아니라 SciTe 편집기 아래 StdOut에 warning 정보를 보여준다.
 
 ```
 #Warn, , StdOut
@@ -405,6 +465,101 @@ MsgBox, %envPath%
 
 
 
+### Dynamic Function Call
+
+dynamic variable reference와 동일한 방식으로 dynamic function call을 사용할 수 있다. 
+
+```
+curfun := "add"
+val := %curfun%(1, 2)
+MsgBox, %val%
+return
+
+add(a, b)
+{
+	return a + b
+}
+```
+
+좋은 방법은 아니지만 아래와 같이 호출하는 방법도 있다.
+
+```
+;~ val := %curfun%(1, 2)
+val := curfun.(1, 2)   ; dot 필요
+```
+
+참고로 오토핫키에서는 변수명과 함수명이 겹쳐도 된다. 아래 코드를 보자.
+
+```
+add := add(1, 2)
+MsgBox, %add%
+return
+
+add(a, b)
+{
+	return a + b
+}
+```
+
+내 생각에 변수명과 함수명을 동일한 이름으로 사용하는 것은 별로 좋은 습관은 아니다. 오토핫키에서 이렇게 이름을 겹쳐 쓸 수 있는 이유는 함수는 호출할 때 뒤에 괄호가 따라오기 때문에 변수명과 함수명을 구분할 수 있기 때문이 아닌가 생각한다.
+
+
+
+### Func objects
+
+위와 같이 변수에 함수의 이름을 문자열로 저장해 두고 dynamic function call을 하면 runtime 시에 해당 function을 찾아야 하기 때문에 효율이 떨어진다. [Func](https://www.autohotkey.com/docs/objects/Func.htm) 함수는 parameter로 입력한 함수에 대한 func object를 리턴한다. 이것은 함수에 대한 reference에 해당하며 dynamic function call이 더 효율적이 된다. 사용법은 문자열 함수명을 사용한 것처럼 하면 된다.
+
+```
+f := Func("myfunc")
+%f%("one")
+f.("two")
+
+myfunc(x) {
+	MsgBox, % x
+}
+```
+
+func object는 여러 properties와 methods를 가지는데, 여기서 살펴볼 것은 name property와 call method이다. name은 function의 이름을 문자열로 저장하고 있다. call method는 함수를 호출하는 또 다른 방법이다.
+
+```
+f := Func("myfunc")
+MsgBox, % f.name
+f.call("three")
+
+myfunc(x) {
+	MsgBox, % x
+}
+```
+
+내 생각에 아래 세 가지 호출 방법 중 call method를 쓰는게 가장 보기 좋다. (f 가 object라는게 명시적으로 드러난다)
+
+```
+%f%("one")
+f.("two")
+f.call("three")
+```
+
+마지막으로 매우 신기한 용법을 기록으로 남겨둔다. function reference가 array의 원소로 들어 있을 때 `array[index-of-fun-ref]()` 식으로 호출하면 function의 인수로 array reference가 넘어간다.
+
+```
+f := Func("myfunc")
+arr := [f, "abc"]
+arr[1]()
+
+myfunc(x) {
+	if (IsObject(x)) {
+		MsgBox, % "object"
+        MsgBox, % x[2]   ; 여기서 x는 array reference. 따라서 x[2]는 "abc"
+    }
+	else
+		msgbox, % x
+}
+```
+
+왜 이렇게 되는지 원리를 정확히 파악해 보지는 않았다. object 자체의 내부 원리인 것 같은데, 과연 이 동작을 써먹을 곳이 있을지 상상이 안간다. (용법이 너무 암시적이고 복잡해 보인다.) 일단 이런게 있다는 것만 알고 넘어간다. 더 자세한 내용은 [Arrays of Functions](https://www.autohotkey.com/docs/Objects.htm#Usage_Arrays_of_Functions) 참고하라.
+
+
+
 ### Scope
 
 * 오토핫키의 함수 안에 정의된 변수는 [local variables](https://www.autohotkey.com/docs/Functions.htm#Locals)이며, 함수 밖에 정의된 변수는 global variable이다. 함수 안에서는 기본적으로 global variable에 접근할 수 없고, 마찬가지로 함수 밖에서는 local variable에 접근할 수 없다. 즉, 함수 안과 밖의 변수 공간은 서로 떨어져 있다.
@@ -437,7 +592,7 @@ MsgBox, %envPath%
 
 * 함수 안에서 global variable에 접근하는 방법
 
-  * 함수 안에서 접근하고자 하는 global variable에 대해 global variable 선언을 해 준다.
+  * 함수 안에서 global variable 선언을 해 준다.
 
     ```
     foo := 1  ; global variable
@@ -451,7 +606,7 @@ MsgBox, %envPath%
     }
     ```
 
-  * 함수가 여러 개이고, 그 각각의 함수마다 같은 global variable에 접근해야 한다면 매번 함수 안에서 global variable 선언을 해줘야 한다. 이런 중복 선언을 하지 않고 모든 함수에서 global variable에 접근할 수 있는 방법이 super-global 선언을 하는 것이다. 함수 밖에서 global 키워드하여 선언한 변수는 super global이 된다.
+  * 함수가 여러 개이고, 그 각각의 함수마다 같은 global variable에 접근해야 한다면 매번 함수 안에서 global variable 선언을 해줘야 한다. 이런 중복 선언을 하지 않고 모든 함수에서 global variable에 접근할 수 있는 방법이 super-global variable로 선언 하는 것이다. 함수 밖에서 해당 변수에 global 선언을 해주면 그 변수는 super global variable이 되며 모든 함수에서 global 선언없이 접근 가능하다.
 
     ```
     global foo := 1  ; super global variable
@@ -469,7 +624,82 @@ MsgBox, %envPath%
     }
     ```
 
-공식 문서 [local variables](https://www.autohotkey.com/docs/Functions.htm#Locals)에 언급되어 있듯이, 모든 함수는 기본적으로 assume-local mode이다. 내 생각에는 force-local mode가 더 엄격한 함수 작성 모드이다. 더 좋은 코딩 방식은 함수 안에서 global variable에 접근 하지 않는 것이다. 필요한 값은 매개변수로 넘겨서 사용하는 것이 함수의 독립성을 유지하고 나중에 수정을 쉽게 만든다.
+
+
+### Assume-local, Force-local
+
+공식 문서 [local variables](https://www.autohotkey.com/docs/Functions.htm#Locals)을 읽어보면 모든 함수는 assume-local function이 디폴트라고 한다. asume-local function은 함수 내 모든 변수는 local variable이지만, 아래 경우에 대해서는 함수 안에서 global scope에 접근할 수 있다.
+
+* super global variable은 assume-local function에서 접근 가능하다. (Scope 섹션에서 정리했던 내용) 그리고 class 키워드로 선언된 class object는 기본적으로 super global variable이다. 따라서 assume-local function에서 접근할 수 있다.
+
+  ```
+  global foo := "foo is super-global"
+  f()
+  return
+  
+  f() ; assume-local function
+  {
+  	MsgBox, %foo%
+  	ins := new C
+  	MsgBox, % ins.var
+  }
+  
+  class C  ; C is super-global
+  {
+  	var := "class C's instance variable"
+  }
+  ```
+
+* assume-local function에서 dynamic variable reference로 global variable에 접근할 수 있다.
+
+  ```
+  foo := "foo is global (not super-global)"
+  f()
+  return
+  
+  f() ; assume-local function
+  {
+  	bar := "foo"
+  	MsgBox, % %bar%  ; dynamic variable refernece
+  }
+  ```
+
+ 위에서 살펴본 바와 같이 assume-local function에서는 함수 안에서 명확히 global variable로 선언하지 않고도 super global variable과 dynamic variable reference로 global variable에 접근할 수 있다. 
+
+assume-local function 안에서 global variable과 동일한 이름의 local variable이 있을 때 #Warn을 정의해 두면 local variable name과 global variable name이 동일하다는 경고를 준다. 그 이유는 #Warn은 디폴트로LocalSameAsGlobal 이라는 WarningType이 설정되어 있다. 따라서 assume-local function 안에서 global variable과 동일한 이름의 local variable을 사용할 때 경고 메세지가 안뜨게 하려면 의도를 명확히 해줘야 한다. 즉, variable이 global인지 local 인지를 인식시켜줘야 한다.
+
+```
+#Warn
+foo := "variable in global scope"
+f()
+MsgBox, %foo%
+return
+
+f() ; assume-local function
+{
+	foo := "variable in local scope"          ; warning 발생
+	;~ local foo := "variable in local scope"    ; warning 없음
+	;~ global foo := "variable in local scope"   ; global foo 내용 변경 
+	MsgBox, %foo%
+}
+```
+
+함수를 아주 견고하게 작성하려면 force-local function으로 작성할 수 있다. force-local function에서는 함수 안에서 global variable로 선언하지 않는 한 super-global variable 뿐 아니라 dynamic variable reference로도 global variable에 접근할 수 없다. 그리고 force-local function에서는 #Warn LocalSameAsGlobal 상태라도 global variable과 local variable의 이름이 같아도 경고 메세지가 뜨지 않는다.
+
+```
+#Warn
+foo := "variable in global scope"
+
+f()
+return
+
+f()
+{
+	local  ; force-local mode
+	foo := "variable in local scope"
+	MsgBox, %foo%
+}
+```
 
 
 
@@ -495,7 +725,7 @@ return
 
 위 코드에서 첫 번째 return은 auto-execute section의 끝을 정의하는 것으로 의도에 따라 반드시 들어가야 한다. 만약 첫 번째 return을 없애면 MsgBox가 세 번 출력된다.  auto-execute section에 대해서는 다음 섹션에서 다시 언급한다. 
 
-내 생각에 서브루틴은 gui 컨트롤의 이벤트 루틴으로 사용하는 것 이외에는 지양해야 한다. (대신 변수 공간이 독립립인 함수를 쓰는게 좋을 것 같다.) gui 컨트롤의 이벤트 루틴으로 사용할 때도 서브루틴 자체가 전역 공간에 곧바로 접근하기 때문에 조금 위험해 보인다. 아직 잘 모르겠으나 이렇게 사용하는 것이 gui를 편하게 작성하는 것 외에 어떤 장점이 있는지 알 수 없다. 
+내 생각에 서브루틴은 gui 컨트롤의 이벤트 루틴으로 사용하는 것 이외에는 지양해야 한다. (대신 변수 공간이 독립적인 함수를 쓰는게 좋을 것 같다.) gui 컨트롤의 이벤트 루틴으로 사용할 때도 서브루틴 자체가 전역 공간에 곧바로 접근하기 때문에 조금 위험해 보인다. 아직 잘 모르겠으나 이렇게 사용하는 것이 gui를 편하게 작성하는 것 외에 어떤 장점이 있는지 알 수 없다. 
 
 ```
 Gui, Add, Button, x10 y10 w100 h20, Btn1
@@ -592,9 +822,7 @@ return
 
 ### Command parameters
 
-**Legacy syntax로 입력을 받는 파라메터**
-
-오토핫키 초보자가 가장 처음 읽게 되는 Tutorial 문서에서 [Commands vs. Functions](https://www.autohotkey.com/docs/Tutorial.htm#s5) 부분을 읽어보면 커맨드를 사용할 때는 함수와는 다르게 legacy syntax를 사용해야 한다는 언급이 있다. 그렇기 때문에 변수를 사용할 때 변수의 값을 참조하려면 사용하려는 변수를 %로 감싸야 한다. 이러한 방식은 가장 처음에 설명했던 MsgBox 커맨드를 사용해 보면 알 수 있다.
+**Legacy syntax로 입력을 받는 파라메터:** 오토핫키 초보자가 가장 처음 읽게 되는 Tutorial 문서에서 [Commands vs. Functions](https://www.autohotkey.com/docs/Tutorial.htm#s5) 부분을 읽어보면 커맨드를 사용할 때는 함수와는 다르게 legacy syntax를 사용해야 한다는 언급이 있다. 그렇기 때문에 변수를 사용할 때 변수의 값을 참조하려면 사용하려는 변수를 %로 감싸야 한다. 이러한 방식은 가장 처음에 설명했던 MsgBox 커맨드를 사용해 보면 알 수 있다.
 
 ```
 s := "World!"
@@ -611,11 +839,7 @@ MsgBox, % "Hello " . s
 
 참고로 expression에서 문자열 연결을 할 때 dot(.)을 사용하는데 생략가능하다.
 
-
-
-**expression syntax로 입력을 받는 파라메터**
-
-오토핫키를 사용하는 이유 중 하나는 매크로 작성이다. 오토핫키는 MouseMove, MouseClick, MouseGetPos, Send, ImageSearch, PixelGetColor, PixelSearch 등, 매크로 작성을 위한 유용한 커맨드들을 제공한다. [MouseMove](https://www.autohotkey.com/docs/commands/ImageSearch.htm) 커맨드의 사용법은 아래와 같다.
+**expression syntax로 입력을 받는 파라메터:** 오토핫키를 사용하는 이유 중 하나는 매크로 작성이다. 오토핫키는 MouseMove, MouseClick, MouseGetPos, Send, ImageSearch, PixelGetColor, PixelSearch 등, 매크로 작성을 위한 유용한 커맨드들을 제공한다. [MouseMove](https://www.autohotkey.com/docs/commands/ImageSearch.htm) 커맨드의 사용법은 아래와 같다.
 
 ```
 MouseMove, X, Y [, Speed, Relative]
@@ -787,7 +1011,7 @@ MsgBox, %rgbcolor%
 
 rgbcolor 변수에는 RGB color 아니라 BGR color가 들어간다. BGR color를 출력하는 것이 디폴트이기 때문이다. 이것은 CoordMode 커맨드 역시 예외가 아니다. Mouse, Pixel, Screen 같은 옵션에 오타가 날 수 있고 그렇게 되면 의도하지 않은 결과가 나온다.
 
-아직 이 문제를 깔끔하게 해결하는 방법은 찾지 못했다. 굳이 엄밀하게 하려면 function으로 감싼 후 옵션 체크 루틴을 추가하는 방법이 있지 않을까?
+간단한 키워드 같은 것으로 이 문제의 해결방법을 제시하는 문서는 아직 찾지 못했다. 굳이 당장 해결하려면 아래와 같이 function으로 커맨드를 감싼 후 옵션 체크 루틴을 추가하는 방법이 있지 않을까?
 
 ```
 #Warn
@@ -806,7 +1030,7 @@ pixel_get_color(x, y, optionsStr="")
 	{
 		option := options[A_Index]
 		if option not in RGB,Slow,Alt
-			throw Exception("잘못된 옵션: " . options[A_Index])
+			throw Exception("잘못된 옵션: " . option)
 	}
 	PixelGetColor, pixelcolor, x, y, %optionsStr%
 	return pixelcolor
@@ -825,6 +1049,27 @@ pixelcolor := pixel_get_color(100, 100, "rgb|slow|alt")
 ```
 pixelcolor := pixel_get_color(100, 100, "rgg")
 ```
+
+
+
+### Command Line Arguments
+
+오토핫키에서 명령행 인수는 `%0%`, `%1%`, `%2%`, ... 방식으로 매우 쉽게 가져올 수 있다. 예를 들어 get_name.ahk 라는 이름으로 오토핫키 스크립트 파일을 만들고 아래와 같이 내용을 작성해 본다.
+
+```
+; filename: get_name.ahk
+MsgBox, Nargs : %0%
+MsgBox, First Name : %1%
+MsgBox, Last  Name : %2%
+```
+
+다른 스크립트 파일에서 아래와 같이 get_name.ahk 를 실행할 수 있다. 이때 명령행 인수를 지정하면 get_name.ahk에서 명령행 인수를 받아서 처리하는 것이다.
+
+```
+run, get_name.ahk Chris Mallett
+```
+
+
 
 
 
