@@ -197,13 +197,11 @@ MsgBox, % obj.two
     obj1.InsertAt(2, obj2*)   ; variadic parameters
       ```
   * [object.RemoveAt(Pos [, Length])](https://www.autohotkey.com/docs/objects/Object.htm#RemoveAt) 
-    
     * Pos 위치부터 Length 수 만큼 원소 삭제
   * [object.Push([Value, Value2, ..., ValueN])](https://www.autohotkey.com/docs/objects/Object.htm#Push) 
     * object의 마지막 위치에 입력한 값들을 삽입
     * 역시 variadic param* 응용 가능
   * [value := object.Pop()](https://www.autohotkey.com/docs/objects/Object.htm#Pop) 
-    
     * object의 마지막 원소를 꺼내어 value에 저장
 * **indexed array**와 **Associative array** 모두 사용
   * [object.Delete(Key)](https://www.autohotkey.com/docs/objects/Object.htm#Delete) 
