@@ -5,7 +5,7 @@ categories:
   - study
 tags:
   - autohotkey
-last_modified_at: 2020-09-05T02:05:00-05:00
+last_modified_at: 2020-09-12T11:30:00-05:00
 ---
 
 
@@ -15,14 +15,10 @@ last_modified_at: 2020-09-05T02:05:00-05:00
 2020년 8월 초부터 인터넷 자료를 통해 오토핫키 기초를 공부했다.  이 글은 8월 19일까지 공부한 내용의 중간 정리다. 지금까지 순서대로 살펴본 자료와 그 자료를 읽고 느낀 점을 쓴다.
 
 가장 처음 읽은 자료는 [프날 : 세상에서 가장 쉬운 오토핫키 강좌](https://pnal.kr/)이다.
-
 * 프로그래밍 무경험자를 위한 오토핫키 입문 강좌이지만, 프로그래밍 경험자를 위한 오토핫키 소개 목적으로도 좋다. 반드시 필요한 기초 위주의 내용이며 중간중간 연습문제를 통해 공부한 것을 응용해 보는 재미도 준다.
 * 기초 강좌 이외 추가 글에는 오토핫키에서 ini 파일 사용법, 한글 분석 라이브러리, gdip 라리브러리, 정규 표현식, WinHTTP를 이용한 웹 크롤링에 대해서도 설명해 준다. 처음에는 간단히 이런게 있구나 정도로만 읽고, 나중에 필요할 때 더 자세히 익히면 좋을 것 같다.
 
-
-
 위 기초 강좌를 읽고 난 후, 아래와 같은 것들이 궁금해 졌다.
-
 * 변수를 생성하고 사용하는 일관된 방법
   * 문자열을 사용할 때 어떤 경우 이중따옴표로 감싸고 어떤 경우는 감싸지 않는가?
   * 커맨드 파라메터에 변수가 포함되는 사칙 연산이나 복잡한 연산을 직접 입력하는 방법
@@ -37,10 +33,7 @@ last_modified_at: 2020-09-05T02:05:00-05:00
 * 클래스 설계
 * 견고한 코드 작성을 위한 단위 테스트 방법
 
-
-
 위 질문들에 대한 답을 얻기 위해 오토핫키 공식 문서를 읽기 시작했는데, 처음에는 [NEWBIE RECOMMENDED LEARNING SEQUENCE](http://www.daviddeley.com/autohotkey/xprxmp/autohotkey_expression_examples.htm#R)의 추천에 따라 Tutorial > Scripts > FAQ 순서로 먼저 읽었다. 그런데 나중에 그냥 Tutorial 페이지만 먼저 읽고 공식문서의 첫 부분인 Usage and Syntax 부터 차근차근 읽는게 낫다고 생각했다. 현재까지 아래 문서들을 한번씩 살펴보았다.
-
 * [Turorial (quick start)](https://www.autohotkey.com/docs/Tutorial.htm)
 * [Scripts (misc)](https://www.autohotkey.com/docs/Scripts.htm)
 * [Using the Program](https://www.autohotkey.com/docs/Program.htm)
@@ -48,59 +41,49 @@ last_modified_at: 2020-09-05T02:05:00-05:00
 * [Scripting Language](https://www.autohotkey.com/docs/Language.htm)
 
 
-
 위 문서를 읽은 후 계속 모든 공식 문서를 읽으려니 좀 지루하기도 해서, 또 다른 오토핫키 기초 동영상 강좌인 [킴영감님의 유튜브 강좌](https://www.youtube.com/channel/UCh8rmCZUr8HJl5muiB2IFLA/playlists)를 보았다.
-
 * 누구나 쉽게 배우는 게임 매크로 만들기 / 오토핫키 기초강좌 (영상 16 개)
 * [리뉴얼] 정말 쉬운 게임 매크로 만들기 / 오토핫키 기초강의 (영상 36개)
 
 위 동영상을 본 이유는 혹시 현재까지 내가 모르는 기초가 있거나 또는 내가 궁금해한 질문의 답을 얻을 수 있지 않을까 해서 였는데 대부분 현재까지 읽은 공식 문서에 포함되는 내용이었다. 다만 이 유튜브 강좌는 동영상 강좌를 좋아하는 초보자에게 유용하며, 특히 게임 매크로 개발을 타겟으로 하고 있기 때문에 이에 관심이 있는 사람에게는 매우 좋다.
 
-
-
 [Xah Lee - Autohotkey Tutorial](http://xahlee.info/mswin/autohotkey.html)도 간단히 읽기 좋다. 여기서는 hotkey로 key remapping 하는 방법을 주로 설명한다.
 
-
-
-## 정리
-
-본 섹션은 머리말 두 번째 단락의 질문들에 대해, 지금까지 공부한 내용을 바탕으로 내 생각을 정리한 것이다. 오토핫키는 변수 값 할당, 문자열 출력, if 조건문, 커맨드 파라메터 입력 등의 다양한 요소에서 legacy syntax와 expression syntax를 사용할 수 있다. 그런데 legacy sytanx는 프로그래밍 입문자 뿐 아니라 경험자에게도 대단히 혼란스럽게 만드는 점이 있으므로 정확하게 알고 사용해야 한다.
+이후 섹션들은 지금까지 공부한 내용을 바탕으로 궁금했던 질문들에 대한 나름대로의 답을 정리한 것이다. 
 
 
 
-### Case-insensitive & Variable names
+## Install
+
+AutoHotkey를 사용하기 위해서는 먼저 [AutoHotkey](https://www.autohotkey.com/) 설치하고, 그 후 AutoHotkey 편집기인 [SciTE4AutoHotkey](https://fincs.ahk4.net/scite4ahk/) 설치를 하면된다. (이 글을 쓰는 시점에서 AutoHotkey v1.1.33.02과 SciTE4AutoHotkey v3.0.06.01 설치하였다) AutoHotkey의 디폴트 설치경로는 `C:\Program Files\AutoHotkey` 이며, SciTE4AutoHotkey의 설치경로는 `C:\Program Files\AutoHotkey\SciTE` 이다. 
+
+한 가지 더 알아둘 사실은 SciTE4AutoHotkey를 설치하면 `C:\Users\<username>\Documents\AutoHotkey` 폴더가 생성되며, 그 안에는 `Lib` 폴더와 `SciTE` 폴더가 생성된다. `Lib` 폴더는 [User Library](https://www.autohotkey.com/docs/Functions.htm#lib) 라고 부르는 폴더인데, 여기에 있는 autohotkey functions은 [#include](https://www.autohotkey.com/docs/commands/_Include.htm) 없이 사용할 수 있다. Include and library 섹션에서 더 자세히 정리한다.
+
+
+
+## Case-insensitive & Variable names
 
 먼저 변수명 작성 규칙에 대해 알아보자.
-
 * AutoHotkey는 variables, keywords, commands, functions 등에 대해 대소문자를 구분하지 않는다. 즉, case-insensitive다. msgbox, MSGBOX, MSGbox, msgBOX, 등 모두 같은 MsgBox 커맨드다. 
-
 * 변수명을 지을 때, letters (A-Za-z), numbers (0-9), non-ASCII characters (한글 같은 유니코드) 및 `_`, `#`, `@`, `$` 가 허용된다. 
-
   * 다른 여러 프로그래밍 언어의 변수명 작성 규칙 (또는 identifier rules) 은 letters, numbers, `_` 의 조합만을 허용하며 반드시 letters로 시작해야 한다. 정규 표현식으로는 `[A-Za-z][A-Za-z0-9_]*` 과 같다.
   * Python의 경우 letters 또는 `_`로 시작하는 것을 허용한다. 정규 표현식으로는 `[A-Za-z_][A-Za-z0-9_]*` 과 같다.
   * AutoHotkey v1의 경우 numbers로 시작해도 되고, `#`, `@`, `$`를 사용해도 되지만, **Python의 규칙을 따르길 추천한다.**
-
 * AutoHotkey는 numbers 만으로도 변수명으로 쓸 수 있다. 즉 아래와 같은 코드가 가능하다.
-
   ```
   10 := 100
   MsgBox, %10%
   ```
-
   그렇지만 절대로 이렇게 쓰면 안 된다. 숫자로만 된 변수는 command line parameters 로 예약되어 있다. ([Script Properties](https://www.autohotkey.com/docs/Variables.htm#prop) 참고)
-
 * AutoHotkey에는 많은 Built-in Variables이 예약되어 있고 `A_`로 시작한다.
-
 * 더 자세한 내용은 [Names](https://www.autohotkey.com/docs/Concepts.htm#names)를 참고하라.
 
 
 
-### Coding Convention
+## Coding Convention
 
-Coding convention은 미리 약속된 코딩 스타일 규약이다. 전역변수명, 지역변수명, 함수명, 클래스명, 메소드명 등에 대한 명명 규약을 Naming convention이라 한다. 그리고 함수에 인수들을 나열할 때 콤마 다음에 한칸을 띄울지 말지, block을 배치할 때 한줄을 띄울지 말지, if 다음 조건문을 작성할 때 한칸을 띄울지 말지 같은 것을 스타일 규약이라 한다.
-
+Coding convention은 미리 약속된 코딩 스타일 규약이다. 전역변수명, 지역변수명, 함수명, 클래스명, 메소드명 등에 대한 명명 규약을 **Naming convention**이라 한다. 그리고 함수에 인수들을 나열할 때 콤마 다음에 한칸을 띄울지 말지, block을 배치할 때 한줄을 띄울지 말지, if 다음 조건문을 작성할 때 한칸을 띄울지 말지 같은 것을 **Style convention**이라 한다.
 **Coding convention의 목적은 가독성을 높이기 위함이다.** 코드가 얼마나 잘 읽혀지는가는 남에게 뿐 아니라 나에게도 중요하다. 가독성이 안 좋으면 어제 작성한 자기 코드도 잘 알아볼 수 없다.
-
 먼저 AutoHotkey 공식 문서나 SciTE4Autohotkey editor 등 에서는 어떤 Naming Convention을 쓰는지 정리한다.
 
 * AutoHotkey에서는 공식적으로 여러 지정자에 대해 **UpperCamelCase**를 쓴다.
@@ -128,9 +111,11 @@ Coding convention은 미리 약속된 코딩 스타일 규약이다. 전역변�
 
 
 
-### MsgBox: 변수의 값 출력
+## MsgBox: 변수의 값 출력
 
-오토핫키에서 [MsgBox](https://www.autohotkey.com/docs/commands/MsgBox.htm) 커맨드는 다른 언어의 print 함수와 같은 역할로, 변수에 저장된 값이나 어떤 연산의 결과를 확인할 때 자주 사용된다. MsgBox의 첫 번째 파라메터로 Text를 입력하면 입력한 Text가 출력되는 상자를 띄운다.
+오토핫키는 변수 값 할당, 문자열 출력, if 조건문, 커맨드 파라메터 입력 등의 다양한 요소에서 legacy syntax와 expression syntax를 사용할 수 있다. 그런데 legacy sytanx는 프로그래밍 입문자 뿐 아니라 경험자에게도 혼란스럽게 만드는 점이 있으므로 사용법을 정확히 알아야 한다.
+
+오토핫키에서 가장 처음 접하는 [MsgBox](https://www.autohotkey.com/docs/commands/MsgBox.htm) 커맨드를 사용하려면 legacy syntax를 알아야 한다. MsgBox 커맨드는 다른 언어의 print 함수와 같은 역할로, 변수에 저장된 값이나 어떤 연산의 결과를 확인할 때 자주 사용된다. MsgBox의 첫 번째 파라메터로 Text를 입력하면 입력한 Text가 출력되는 상자를 띄운다.
 
 ```
 MsgBox, Hello World!
@@ -163,7 +148,7 @@ MsgBox, % var  ; expression syntax
 
 
 
-### Data types
+## Data types
 
 변수에 대해 살펴보기 전에 변수에 할당하는 값의 data type이 어떤 것들이 있는지 확인한다. 오토핫키가 지원하는 data type은 아래와 같다.
 
@@ -181,7 +166,7 @@ MsgBox, % var  ; expression syntax
 
 
 
-### Asignment Operator: equal & colon-equal
+## Asignment Operator: equal & colon-equal
 
 [Variables and Expressions](https://www.autohotkey.com/docs/Variables.htm) 문서에 자세히 나오지만, 오토핫키에서 변수에 어떤 값을 할당하는 방법은 두 가지다. 하나는 legacy operator인 equal (=)을 사용하는 것, 다른 하나는 expression operator인 colon-equal (:=)을 사용하는 것이다. 
 
@@ -270,7 +255,7 @@ num := "123"
 
 
 
-### 암시적 연산 실험
+## 암시적 연산 실험
 
 본 섹션은 오토핫키 변수의 암시적 형변환에 대한 테스트다. 쓸데없는 내용일 수도 있으나 **오토핫키의 수치 연산에서 암시적 형변환은 상수가 아니라 변수인 경우에만 해당된다는 사실을 보여주기 위함**이다.
 
@@ -340,7 +325,7 @@ MsgBox, %x4%
 
 
 
-### Dynamic variable reference
+## Dynamic variable reference
 
 asignment operator 내용에서 살펴보았듯이 legacy operator equal (=)을 사용할 때 변수를 참조하려면 변수명을 %로 감싸야 하고,  expression operator colon-equal (:=)을 사용할 때는 그냥 변수명을 사용하면 된다. 여기서는 [dynamic variable reference](https://www.autohotkey.com/docs/Language.htm#dynamic-variables) (double reference 또는 double-deref 라고도 부름)에 대해서 알아본다. dynamic variable reference는 expression에서 변수를 %로 감싸면 %로 감싼 변수의 값에 해당하는 문자열이 변수 이름이 되어 그 변수에 해당하는 값을 가져온다. 말이 복잡한데 아래 예제를 보면 바로 이해가 된다. 
 
@@ -380,7 +365,7 @@ MsgBox, %bar%
 
 
 
-### #Warn
+## #Warn
 
 오토핫키는 정의하지 않은 (또는 생성하지 않은) 변수를 참조할 때 에러가 나지 않는다. 예를 들어 아래 코드는 (undefined variable 같은) 에러가 발생하지 않고 정상 작동한다. 
 
@@ -420,7 +405,7 @@ MsgBox, var=%var%
 
 
 
-### #NoEnv
+## #NoEnv
 
 오토핫키에서는 운영체제에서 관리하는 환경 변수에 직접 접근할 수 있다. (환경 변수는 window cmd 창에 set 명령어를 입력하면 볼 수 있다.) 예를 들어 오토핫키에서 아래와 같이 환경 변수 path를 사용할 수 있다. 
 
@@ -452,7 +437,7 @@ MsgBox, %envPath%
 
 
 
-### Function
+## Function
 
 공식 문서 [Functions](https://www.autohotkey.com/docs/Functions.htm)에는 함수를 정의하고 사용하는 방법에 대한 세부 내용이 있으니 읽어 본다. 특히 아래 내용을 숙지한다.
 
@@ -462,10 +447,11 @@ MsgBox, %envPath%
   * 큰 string은 ByRef로 넘기는게 훨씬 효율이 좋음
 * optional parameter 정의하는 방법
 * variadic function 정의 및 호출 방법 (가변 인수)
+* include 및 function file 작성 규칙 (이후 섹션에서 더 자세히 설명)
 
 
 
-### Dynamic Function Call
+## Dynamic Function Call
 
 dynamic variable reference와 동일한 방식으로 dynamic function call을 사용할 수 있다. 
 
@@ -505,7 +491,7 @@ add(a, b)
 
 
 
-### Func objects
+## Func objects
 
 위와 같이 변수에 함수의 이름을 문자열로 저장해 두고 dynamic function call을 하면 runtime 시에 해당 function을 찾아야 하기 때문에 효율이 떨어진다. [Func](https://www.autohotkey.com/docs/objects/Func.htm) 함수는 parameter로 입력한 함수에 대한 func object를 리턴한다. 이것은 함수에 대한 reference에 해당하며 dynamic function call이 더 효율적이 된다. 사용법은 문자열 함수명을 사용한 것처럼 하면 된다.
 
@@ -560,10 +546,9 @@ myfunc(x) {
 
 
 
-### Scope
+## Scope
 
 * 오토핫키의 함수 안에 정의된 변수는 [local variables](https://www.autohotkey.com/docs/Functions.htm#Locals)이며, 함수 밖에 정의된 변수는 global variable이다. 함수 안에서는 기본적으로 global variable에 접근할 수 없고, 마찬가지로 함수 밖에서는 local variable에 접근할 수 없다. 즉, 함수 안과 밖의 변수 공간은 서로 떨어져 있다.
-
   * 아래 코드는 함수 밖에서 함수 내 local variable에 접근할 수 없음을 보여준다.
 
     ```
@@ -589,9 +574,7 @@ myfunc(x) {
     ```
 
   * 위 코드에 #Warn를 입력해서 실행해 보면 정의하지 않은 variable로 잡아낸다.
-
 * 함수 안에서 global variable에 접근하는 방법
-
   * 함수 안에서 global variable 선언을 해 준다.
 
     ```
@@ -626,7 +609,7 @@ myfunc(x) {
 
 
 
-### Assume-local, Force-local
+## Assume-local, Force-local
 
 공식 문서 [local variables](https://www.autohotkey.com/docs/Functions.htm#Locals)을 읽어보면 모든 함수는 assume-local function이 디폴트라고 한다. asume-local function은 함수 내 모든 변수는 local variable이지만, 아래 경우에 대해서는 함수 안에서 global scope에 접근할 수 있다.
 
@@ -703,7 +686,7 @@ f()
 
 
 
-### Subroutine
+## Subroutine
 
 서브루틴은 label과 return 사이에 정의된 코드다. `gosub, subroutine_name` 형식으로 서브루틴을 호출하여 서브루틴 안에 정의된 코드를 실행하며 return을 만나면 호출한 곳으로 돌아간다.
 
@@ -743,7 +726,7 @@ ExitApp
 
 
 
-### Auto-execute section
+## Auto-execute section
 
 [auto-execute section](https://www.autohotkey.com/docs/Scripts.htm#auto)은 스크립트를 실행했을 때 처음 무조건 실행되는 서브루틴이다. 마치 C 언어의 main 함수 같은 거라 생각할 수 있다. auto-execute section의 범위를 아는 것이 중요하다. auto-execute section은 스크립트 시작부터 처음 return 또는 exit, hotkey label, hotstring label을 만나기 전까지이며, 4개 중 아무거나 처음 만나는 지점까지가 범위이다. 4개 중 하나도 없으면 스크립트 끝까지다. 주의할 점은 **서브루틴 label**은 auto-execute section의 끝을 나타내지 않는다. 예제를 통해 확인해 보자. 
 
@@ -777,7 +760,7 @@ auto-execute section에서 또 다른 주의 점은 #include로 다른 파일의
 
 
 
-### AutoHotkey Tray Icon
+## AutoHotkey Tray Icon
 
 오토핫키는 auto-execute section 실행이 끝나면 종료되고 오토핫키 트레이 아이콘 (우측 하단)이 사라진다. 단 [#Persistent](https://www.autohotkey.com/docs/commands/_Persistent.htm) directive를 넣거나, hotkey 또는 hotstring이 정의되어 있거나, GUI 를 정의했거나, OnMessage() 함수 등을 사용하면 대기 상태인 idle state가 되며 오토핫키 트레이 아이콘 H가 생겨져 있다.
 
@@ -785,7 +768,7 @@ auto-execute section에서 또 다른 주의 점은 #include로 다른 파일의
 
 
 
-### Load
+## Load
 
 우선 아래 코드를 실행해 보자. 실행 결과는 예상대로 메세지 박스로 3이 출력된다.
 
@@ -820,9 +803,11 @@ return
 
 
 
-### Command parameters
+## Command parameters
 
-**Legacy syntax로 입력을 받는 파라메터:** 오토핫키 초보자가 가장 처음 읽게 되는 Tutorial 문서에서 [Commands vs. Functions](https://www.autohotkey.com/docs/Tutorial.htm#s5) 부분을 읽어보면 커맨드를 사용할 때는 함수와는 다르게 legacy syntax를 사용해야 한다는 언급이 있다. 그렇기 때문에 변수를 사용할 때 변수의 값을 참조하려면 사용하려는 변수를 %로 감싸야 한다. 이러한 방식은 가장 처음에 설명했던 MsgBox 커맨드를 사용해 보면 알 수 있다.
+### Legacy syntax parameters
+
+오토핫키 초보자가 가장 처음 읽게 되는 Tutorial 문서에서 [Commands vs. Functions](https://www.autohotkey.com/docs/Tutorial.htm#s5) 부분을 읽어보면 커맨드를 사용할 때는 함수와는 다르게 legacy syntax를 사용해야 한다는 언급이 있다. 그렇기 때문에 변수를 사용할 때 변수의 값을 참조하려면 사용하려는 변수를 %로 감싸야 한다. 이러한 방식은 가장 처음에 설명했던 MsgBox 커맨드를 사용해 보면 알 수 있다.
 
 ```
 s := "World!"
@@ -839,7 +824,11 @@ MsgBox, % "Hello " . s
 
 참고로 expression에서 문자열 연결을 할 때 dot(.)을 사용하는데 생략가능하다.
 
-**expression syntax로 입력을 받는 파라메터:** 오토핫키를 사용하는 이유 중 하나는 매크로 작성이다. 오토핫키는 MouseMove, MouseClick, MouseGetPos, Send, ImageSearch, PixelGetColor, PixelSearch 등, 매크로 작성을 위한 유용한 커맨드들을 제공한다. [MouseMove](https://www.autohotkey.com/docs/commands/ImageSearch.htm) 커맨드의 사용법은 아래와 같다.
+
+
+### Expression syntax parameters
+
+오토핫키를 사용하는 이유 중 하나는 매크로 작성이다. 오토핫키는 MouseMove, MouseClick, MouseGetPos, Send, ImageSearch, PixelGetColor, PixelSearch 등, 매크로 작성을 위한 유용한 커맨드들을 제공한다. [MouseMove](https://www.autohotkey.com/docs/commands/ImageSearch.htm) 커맨드의 사용법은 아래와 같다.
 
 ```
 MouseMove, X, Y [, Speed, Relative]
@@ -900,7 +889,7 @@ y := 50
 MouseMove, %x% + 50, %y% + 50
 ```
 
-위 코드에서 %x% + 50은 100이 아니다. 50(변수) + 50이다. #Warn에 의한 메세지를 확인해 보면 global variable인 50이 할당되어 있지 않다고 가르쳐 준다. 이 말은 %x%를 dynamic variable reference로 해석했다는 말이다. 즉, **MouseMove의 X, Y 파라메터 자리는 기본적으로 expression을 입력받는다는 말이다.** [MouseMove](https://www.autohotkey.com/docs/commands/MouseMove.htm) 커맨드의 X, Y 파라메터의 설명에도 아래와 같이 expression으로 입력할 수 있다고 되어 있다.
+위 코드에서 `%x% + 50`은 100이 아니다. `50(변수) + 50`이다. #Warn에 의한 메세지를 확인해 보면 global variable인 50이 할당되어 있지 않다고 가르쳐 준다. 이 말은 `%x%`를 dynamic variable reference로 해석했다는 말이다. 즉, **MouseMove의 X, Y 파라메터 자리는 기본적으로 expression을 입력받는다는 말이다.** [MouseMove](https://www.autohotkey.com/docs/commands/MouseMove.htm) 커맨드의 X, Y 파라메터의 설명에도 아래와 같이 expression으로 입력할 수 있다고 되어 있다.
 
 *X, Y: The x/y coordinates to move the mouse to, which can be __expressions__.*
 
@@ -910,9 +899,9 @@ MouseMove, %x% + 50, %y% + 50
 MouseMove, %x%, %y%
 ```
 
-[Expression Operators](https://www.autohotkey.com/docs/Variables.htm#operators)에 `%Var%`설명에 따르면 커맨드 파라메터에 "can be an expression" 이라고 되어 있으면 하위 호환(backward compatibility)을 위해 *%var%*는 마치 양쪽 %가 없는 것처럼 해석하여 그냥 var라고 설명되어 있다. 따라서 MouseMove 커맨드의 경우 %x%, %y% 라고 입력한 것은 그냥 x, y로 입력한 것과 같다. 
+[Expression Operators](https://www.autohotkey.com/docs/Variables.htm#operators)에 `%Var%`설명에 따르면 커맨드 파라메터에 "can be an expression" 이라고 되어 있으면 하위 호환(backward compatibility)을 위해 `%var%`는 마치 양쪽 %가 없는 것처럼 해석하여 그냥 var라고 설명되어 있다. 따라서 MouseMove 커맨드의 경우 `%x%`, `%y%` 라고 입력한 것은 그냥 `x`, `y`로 입력한 것과 같다. 
 
-그렇다면 %x%나 %y%를 dynamic variable reference로 하고 싶다면? 문서 설명에 나온 것처럼 괄호로 감싸면 된다. 즉 아래와 같이 쓰면 된다. 
+그렇다면 `%x%`나 `%y%`를 dynamic variable reference로 하고 싶다면? 문서 설명에 나온 것처럼 괄호로 감싸면 된다. 즉 아래와 같이 쓰면 된다. 
 
 ```
 #Warn
@@ -926,17 +915,19 @@ MouseMove, (%x%), (%y%)
 
 
 
-**중간정리:** 현재까지 논의한 내용의 중간정리 해보면 다음과 같다. 
+### 중간정리
+
+현재까지 논의한 내용의 중간정리 해보면 다음과 같다. 
 
 * 커맨드 파라메터의 설명에 "can be an expression"으로 되어 있는 경우 expression 입력을 받는다. (주로 number를 입력받는 파라메터의 경우 일 것이다.)
-  * 따라서 변수의 값을 입력할 때 legacy syntax인 %var%를 쓰지 말고, 그냥 expression syntax인 var 써라.
-  * 그럼에도 불구하고 %var% 형식이 정상작동하는 이유는 "can be an expression" 파라메터는 %var%를 dynamic variable reference로 해석하지 않고 하위 호환을 위해 var로 해석하기 때문이다.
-  * "can be an expression" 파라메터에 dynamic variable reference를 사용하려면 (%var%) 사용하라.
+  * 따라서 변수의 값을 입력할 때 legacy syntax인 `%var%`를 쓰지 말고, 그냥 expression syntax인 var 써라.
+  * 그럼에도 불구하고 `%var%` 형식이 정상작동하는 이유는 "can be an expression" 파라메터는 `%var%`를 dynamic variable reference로 해석하지 않고 하위 호환을 위해 var로 해석하기 때문이다.
+  * "can be an expression" 파라메터에 dynamic variable reference를 사용하려면 `(%var%)` 사용하라.
 * "can be an expression" 파라메터에 값을 입력하는 가장 엄밀한 사용법은 입력할 값이 저장된 변수를 미리 계산해 놓고, 커맨드 파라메터 자리에서는 그 변수만 써 넣는 것이다. 즉, 위 예제에서 살펴봤던 파라메터 자리 자체에서 어떤 연산을 하는 것도 되도록이면 피하라.
 
 
 
-**커맨드 파라메터의 종류**
+### 커맨드 파라메터의 종류
 
 위에서 살펴본 바와 같이 커맨드 파라메터는 대부분 legacy syntax 입력을 받고 이런 자리에 expression을 입력하려면 forced expression을 사용해야 한다. 반면 "can be an expression" 파라메터의 경우 expression syntax의 입력을 받는다.
 
@@ -952,8 +943,6 @@ MouseMove, (%x%), (%y%)
 * Number
   * 대부분 literal number 또는 expression 입력 (forced expression 이 아님)
 
-
-
 특정 좌표의 pixel 값을 얻는 커맨드인 [PixelGetColor](https://www.autohotkey.com/docs/commands/PixelGetColor.htm) 커맨드를 살펴보자.
 
 ```
@@ -966,7 +955,9 @@ PixelGetColor, OutputVar, X, Y [,Mode]
 
 
 
-**예제:** 스크린 좌표 100, 100으로 마우스 포인터를 이동시키고, 그 픽셀의 RGB color를 얻는 코드다. (특정 좌표의 RGB 값을 얻으려면 PixelGetColor만 사용해도 되지만, 그냥 마우스도 이동시켜 본다. 그리고 옵션도 여러가지를 넣어본다.)
+### 예제
+
+스크린 좌표 100, 100으로 마우스 포인터를 이동시키고, 그 픽셀의 RGB color를 얻는 코드다. (특정 좌표의 RGB 값을 얻으려면 PixelGetColor만 사용해도 되지만, 그냥 마우스도 이동시켜 본다. 그리고 옵션도 여러가지를 넣어본다.)
 
 ```
 #Warn
@@ -997,7 +988,7 @@ MsgBox, %rgbcolor%
 
 
 
-### Option parameter 검증
+## Option parameter 검증
 
 오토핫키 커맨드는 옵션에 관련된 파라메터에 잘못된 옵션을 입력해도 에러나 경고 메세지를 주지 않는다. 잘못 입력하면 그냥 입력하지 않은 것으로 취급한다. 예를 들어 PixelGetColor 커맨드의 Mode 파라메터 옵션은 Alt, Slow, RGB가 있는데, 세 옵션 이외에 다른 것을 입력하거나 또는 옵션 입력 과정 중에 오타가 나도 정상 작동한다.
 
@@ -1052,7 +1043,7 @@ pixelcolor := pixel_get_color(100, 100, "rgg")
 
 
 
-### Command Line Arguments
+## Command Line Arguments
 
 오토핫키에서 명령행 인수는 `%0%`, `%1%`, `%2%`, ... 방식으로 매우 쉽게 가져올 수 있다. 예를 들어 get_name.ahk 라는 이름으로 오토핫키 스크립트 파일을 만들고 아래와 같이 내용을 작성해 본다.
 
@@ -1071,10 +1062,122 @@ run, get_name.ahk Chris Mallett
 
 
 
+## Include and Library
+
+`D:\test` 경로에 `main.ahk`라는 이름으로 아래 코드를 작성했다고 하자.
+
+```
+; D:\test\main.ahk
+
+add(x, y) {
+	return x + y
+}
+sub(x, y) {
+	return x - y
+}
+mul(x, y) {
+	return x * y
+}
+div(x, y) {
+	return x / y
+}
+
+MsgBox, % add(1, 2) ", " sub(1, 2) ", " mul(1, 2) ", " div(1, 2)
+```
+
+`add`, `sub`, `mul`, `div` 함수는 두 numbers를 입력받고 덧셈, 뺄셈, 곱셈, 나눗셈 결과를 리턴하는 함수이다. 실행해 보면 사칙연산 결과가 메세지 박스에 출력한다.
 
 
 
+### #Include
+
+위 코드에 있는 함수들을 다른 파일에 저장한 후 불러와서 사용하고 싶으면 [#Include](https://www.autohotkey.com/docs/commands/_Include.htm)를 사용하면 된다. 우선 `add`, `sub`, `mul`, `div` 함수 정의를 `D:\test`에 `math.ahk`로 저장하고 `main.ahk`를 아래와 같이 수정한다.
+
+```
+#Include math.ahk
+MsgBox, % add(1, 2) ", " sub(1, 2) ", " mul(1, 2) ", " div(1, 2)
+```
+
+#Include에 지정할 파일은 절대 경로(absolute path) 또는 상대 경로(relative path)로 지정할 수 있다. 상대 경로는 현재 스크립트 `main.ahk`이 위치한 `%A_ScriptDir%`의 상대 경로이다. 따라서 `#Include math.ahk`는 `math.ahk`가 `main.ahk`와 같은 폴더에 있음을 의미한다. 만약 `D:\test` 에 `mylib` 라는 폴더를 만들고 거기에 `math.ahk`를 넣어 둔다면 `main.ahk`는 아래와 같이 되어야 한다.
+
+```
+#Include mylib\math.ahk          ; 상대경로
+#Include D:\test\mylib\math.ahk  ; 또는 절대경로
+MsgBox, % add(1, 2) ", " sub(1, 2) ", " mul(1, 2) ", " div(1, 2)
+```
+
+#Include를 통해 지정되는 파일의 모든 내용은 실행 전 적재 단계에서 #Include가 있는 자리에 그대로 복사된다. 그리고 같은 파일에 대해 여러 번 #Include를 하더라도 한번만 적용된다. 더 자세한 내용은 [#Include Remarks](https://www.autohotkey.com/docs/commands/_Include.htm#Remarks)을 참고하라.
 
 
 
+### Library
 
+AutoHotkey에서는 #Include 없이 외부 파일에 저장된 함수를 자동으로 인식하고 호출할 수 있는 [function Library](https://www.autohotkey.com/docs/Functions.htm#lib) 기능을 제공한다. 이를 사용하려면 두 가지 조건을 만족해야 하는데, 첫 번째는 함수가 저장된 파일명이 함수명과 동일해야 한다는 점이고, 두 번째는 지정된 `Lib` 폴더에 함수 파일들이 있어야 한다는 점이다. 
+
+지정된 `Lib` 폴더는 Local library, User library, Standard library라고 부르는 세 가지가 있다. 각각의 경로는 아래와 같다.
+
+* Local library: `%A_ScriptDir%\Lib\`
+* User library: `%A_MyDocuments%\AutoHotkey\Lib\`
+* Standard library: `directory-of-the-currently-running-AutoHotkey.exe\Lib\`
+
+구체적인 예제를 통해 library의 기능을 확인해 보자. 위에서 예제로 사용한 math 함수들을 예제로 사용한다. 먼저 `D:\test` 에 `Lib` 폴더를 만든다. 이 폴더는 `D:\test`에 위치한 `main.ahk` 입장에서 Local library folder에 해당한다. 다음 `Lib` 폴더에 `add.ahk`, `sub.ahk`, `mul.ahk`, `div.ahk` 파일을 만들고 각각의 해당 함수들을 작성/저장한다. 그러면 `main.ahk`는 아래와 같이 #Include 없이 `add`, `sub`, `mul`, `div` 함수를 호출할 수 있다.
+
+```
+; D:\test\main.ahk
+
+MsgBox, % add(1, 2) ", " sub(1, 2) ", " mul(1, 2) ", " div(1, 2)
+```
+
+이 함수 파일들이 User library 경로인 `C:\Users\<username>\Documents\AutoHotkey\Lib`에 있어도 #Include 없이 사용할 수 있다. Standard library 역시 마찬가지이다. 만약 동일한 이름의 함수 파일이 Local libarary, User libarary, Standard libarary에 동시에 존재하면 호출되는 함수의 우선순위는 Local > User > Standard 순서이다. Local, User, Standard 라는 이름에서도 알 수 있듯이 어떤 개개의 project에서만 사용할 함수들은 Local libarary에, 여러 projects에서 공통으로 사용하는 함수들은 User library에, 매우 표준이 되는 함수들은 Standard library에 놓으라는 의미이다. (내 생각에 Standard libarary 경로는 일반적으로 C 드라이브 내에 관리자 권한이 필요한 부분이라 third-party library 함수들이 놓이는 곳이 아닌가 생각한다. 그래서 거의 사용하지 않을 생각이다)
+
+
+
+### Prefix.ahk
+
+위 Library 섹션에서 살펴봤듯이 library 함수들은 함수명과 파일명이 동일해야 한다는 제한때문에 파일 하나에 함수 하나씩만 저장해야 한다. 그런데 library 함수들을 하나의 파일 안에 모두 저장하여 사용하는 방법이 있다. `prefix_funcname` 형식을 사용하면 된다. 우선 Local library 폴더에 `math.ahk` 파일을 만들고 그 안에 함수들을 작성하는데, 이때 함수명을 `math_add`, `math_sub`, `math_mul`, `math_div`로 해야 한다. 그런 후, `main.ahk`에서 함수를 호출할 때 아래와 같이 `math_add`, `math_sub`, `math_mul`, `math_div`로 호출하면 된다.
+
+```
+; D:\test\main.ahk
+
+MsgBox, % math_add(1, 2)
+MsgBox, % math_sub(1, 2)
+MsgBox, % math_mul(1, 2)
+MsgBox, % math_div(1, 2)
+```
+
+내 생각에 위와 같은 이유 때문에 AutoHotkey에서 함수명을 지을 때 언더바를 쓰는 `snake_case`를 쓰지 않고 `lowerCamelCase` 또는 `UpperCamelCase`를 쓰는 것 같다.
+
+
+
+### library 보충 내용
+
+[Libraries of Functions: Standard Library and User Library](https://www.autohotkey.com/docs/Functions.htm#lib) 문서를 보면 위에서 언급한 내용 이외에 도움될만한 몇 가지 내용이 더 있다.
+
+* timer 또는 GUI event처럼 동적으로 또는 간접적으로 호출되는 함수들의 경우 libraray 함수와 같이 auto-include를 사용할 수 없고, 반드시 #Include로 명시적으로 포함시켜야 한다.
+* 한 파일에 하나의 함수만 작성한 library 함수의 경우, 그 함수 내에 또 다른 함수 (private function) 나 subroutine을 정의해 놓고 library 함수에서 호출하여 쓸 수 있지만 조심해서 써야 된다. private function이나 subroutine 모두 (library 함수가 main에서 사용된 후) global 변수 공간에 등록되어 어디서든 호출될 수 있기 때문에 함수명이나 서브루틴명을 충분히 구분되는 것으로 지어야 한다.
+* library 함수 내에서 #include를 사용하면, 이 #include에 대한 working directory는 library 함수가 위치한 디렉토리다. 따라서 #include로 적재되는 파일의 경로 설정을 library 함수가 있는 디렉토리 기준으로 할 수 있다. 이 방법은 어떤 관련있는 여러 함수들을 하나의 큰 라이브러리 파일로 묶는데 사용될 수 있다. 
+
+
+
+### #Include folder
+
+[#Include](https://www.autohotkey.com/docs/commands/_Include.htm)는 `#Include <File>`을 통해 파일에 있는 소스코드를 포함시킬 수 있다. #Include의 또 다른 기능은 `#Include <Directory>`이다. 이것은 `#Include <File>`을 여러번 할때 반복적으로 긴 경로명을 입력하는 것을 피할 수 있다. 예를 들어 현재 `%A_ScriptDir%`에 `mylib\`라는 폴더가 있고 그 안에 `add.ahk`, `sub.ahk`, `mul.ahk`, `div.ahk`가 있다고 하자. 모든 함수를 include 하려면 아래와 같이 해야 한다.
+
+```
+#Include mylib\add.ahk
+#Include mylib\sub.ahk
+#Include mylib\mul.ahk
+#Include mylib\div.ahk
+```
+
+만약 `mylib\`가 아니라 다른 긴 경로라면 코드가 훨씬 더 지저분해 보이거나 또는 폴더명을 바꾸면 모든 부분을 바꿔줘야 하는 불편함이 있을 것이다. `#Include <Directory>`를 이용하면 아래와 같이 변경할 수 있다.
+
+```
+#Include mylib
+#Include add.ahk
+#Include sub.ahk
+#Include mul.ahk
+#Include div.ahk
+```
+
+`#Include <Directory>` 밑에 정의되는 모든 `#Include <file>`은 앞에 `<Directory>`가 적용되는 것이다. 주의할 점은 `#Include <Directory>`은 working directory를 바꾸는게 아니다. 단지 include가 적용되는 directory를 바꾼 것이다. working directory를 바꾸려면 [SetWorkingDir](https://www.autohotkey.com/docs/commands/SetWorkingDir.htm)를 사용하라.

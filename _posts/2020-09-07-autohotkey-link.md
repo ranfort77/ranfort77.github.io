@@ -95,6 +95,15 @@ last_modified_at: 2020-09-07T10:30:00-05:00
 
 
 
+## AHK Studio
+
+* [Maestrith.com - AHK Studio](http://www.maestrith.com/ahk-studio/)
+* [AHK Studio Github wiki](https://github.com/maestrith/AHK-Studio/wiki)
+* [Level-up your AutoHotkey coding by using AHK Studio!](https://www.autohotkey.com/boards/viewtopic.php?t=62654) by Joe Glines
+* [AHK Studio Tutorials](https://www.the-automator.com/ahk-studio/)
+
+
+
 ## ETC
 
 * [Tutorial: Using named arguments with functions](https://autohotkey.com/board/topic/17713-tutorial-using-named-arguments-with-functions-novice/)
