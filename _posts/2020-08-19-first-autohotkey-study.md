@@ -5,7 +5,7 @@ categories:
   - study
 tags:
   - autohotkey
-last_modified_at: 2020-09-12T11:30:00-05:00
+last_modified_at: 2020-09-16T03:49:00-05:00
 ---
 
 
@@ -1112,7 +1112,7 @@ MsgBox, % add(1, 2) ", " sub(1, 2) ", " mul(1, 2) ", " div(1, 2)
 
 ### Library
 
-AutoHotkey에서는 #Include 없이 외부 파일에 저장된 함수를 자동으로 인식하고 호출할 수 있는 [function Library](https://www.autohotkey.com/docs/Functions.htm#lib) 기능을 제공한다. 이를 사용하려면 두 가지 조건을 만족해야 하는데, 첫 번째는 함수가 저장된 파일명이 함수명과 동일해야 한다는 점이고, 두 번째는 지정된 `Lib` 폴더에 함수 파일들이 있어야 한다는 점이다. 
+AutoHotkey에서는 #Include 없이 외부 파일에 저장된 함수를 자동으로 인식하고 호출할 수 있는 [function Library](https://www.autohotkey.com/docs/Functions.htm#lib) 기능을 제공한다. 이를 사용하려면 두 가지 조건을 만족해야 하는데, 첫 번째는 함수가 저장된 파일 이름이 함수의 이름과 동일해야 한다는 점이고, 두 번째는 지정된 `Lib` 폴더에 함수 파일들이 있어야 한다는 점이다. 
 
 지정된 `Lib` 폴더는 Local library, User library, Standard library라고 부르는 세 가지가 있다. 각각의 경로는 아래와 같다.
 
@@ -1181,3 +1181,14 @@ MsgBox, % math_div(1, 2)
 ```
 
 `#Include <Directory>` 밑에 정의되는 모든 `#Include <file>`은 앞에 `<Directory>`가 적용되는 것이다. 주의할 점은 `#Include <Directory>`은 working directory를 바꾸는게 아니다. 단지 include가 적용되는 directory를 바꾼 것이다. working directory를 바꾸려면 [SetWorkingDir](https://www.autohotkey.com/docs/commands/SetWorkingDir.htm)를 사용하라.
+
+
+
+### #Include \<LibName\>
+
+Library 폴더에 있는 함수들은 #Include 없이 사용할 수 있다는 장점이 있지만, 단점도 있다. 첫 번째는 main script가 실행될 때 함수 호출이 일어나면 먼저 #Include된 함수 목록에서 해당 함수가 있는지 찾고, 없으면 local library, user library, standard library 순서로 해당 함수를 찾는다. 이 때 library 디렉토리에 파일이 많으면 많을 수록 속도가 느려진다. 두 번째는 #Include 없이 사용하는 library 함수는 AHK Studio 같은 오토핫키 통합개발환경에서 단어 자동완성(IntelliSense)이 되지 않는다.
+
+위와 같은 이유로 library 함수 역시 명시적으로 #Include를 하는게 좋다. 라이브러리 함수는 경로 없이 `#Include <LibName>` 형식으로 지정한다. (c언어 표준 헤더파일 include와 유사) 그러면 library 폴더에 있는 LibName.ahk 파일이 include 된다.
+
+
+

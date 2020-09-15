@@ -39,6 +39,8 @@ last_modified_at: 2020-09-07T10:30:00-05:00
 
 * [10+ Cool AutoHotkey Scripts & How to Make Your Own](https://www.makeuseof.com/tag/10-cool-autohotkey-scripts-make/)
 * [Skrommel's One Hour Software](https://www.dcmembers.com/skrommel/)
+* [Free AutoHotkey Scripts and Apps for Learning Script Writing and Generating Ideas](http://www.computoredge.com/AutoHotkey/Free_AutoHotkey_Scripts_and_Apps_for_Learning_and_Generating_Ideas.html)
+* [CodeQuickTester](https://www.autohotkey.com/boards/viewtopic.php?p=36018#p36018)
 
 
 
@@ -97,10 +99,12 @@ last_modified_at: 2020-09-07T10:30:00-05:00
 
 ## AHK Studio
 
-* [Maestrith.com - AHK Studio](http://www.maestrith.com/ahk-studio/)
 * [AHK Studio Github wiki](https://github.com/maestrith/AHK-Studio/wiki)
+* [AHK Studio forum](https://www.autohotkey.com/boards/viewtopic.php?f=6&t=300) by maestrith
+  * [Chad Wilson (Maestrith) 유튜브](https://www.youtube.com/c/maestrith/videos)
 * [Level-up your AutoHotkey coding by using AHK Studio!](https://www.autohotkey.com/boards/viewtopic.php?t=62654) by Joe Glines
-* [AHK Studio Tutorials](https://www.the-automator.com/ahk-studio/)
+  * [the-automator.com ahk-studio](https://www.the-automator.com/ahk-studio/)
+  * [Joe Glines AHK Studio Tutorials 유튜브](https://www.youtube.com/watch?v=XynRkrO6Fas&list=PL3JprvrxlW279vlWADTTlyLH1p800YlCC)
 
 
 
