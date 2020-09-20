@@ -32,6 +32,7 @@ last_modified_at: 2020-09-07T10:30:00-05:00
 * [jeeswg's homepage](https://www.autohotkey.com/boards/viewtopic.php?f=17&t=30931)
 * [Jack's AutoHotkey Blog](https://jacks-autohotkey-blog.com/)
 * [AutoHotkey Expression Examples](http://www.daviddeley.com/autohotkey/xprxmp/autohotkey_expression_examples.htm)
+* [오토핫키 발전소](https://ahkplant.tistory.com/)
 
 
 
