@@ -108,7 +108,7 @@ analytics:
 author:
   name             : *name # "Your Name"
   avatar           : *teaser # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "가만히 있기 좋아하는 사람"
+  bio              : "Freesia Boy"
   location         : "태양계 지구"
   email            : "ranfort77@gmail.com"
   links:
